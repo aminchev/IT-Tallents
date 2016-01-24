@@ -1,0 +1,108 @@
+package WarGame;
+
+public class Game {
+	private static final int INDEX_OF_LAST_CARD = 25;
+	private static final int COUNT_OF_CARDS_USED_FOR_WAR = 3;
+	private static final int COUNT_OF_CARDS_WIN_IN_WAR = 6;
+	private static final int SECOND_PLAYER_START_SCORE = 0;
+	private static final int FIRST_PLAYER_START_SCORE = 0;
+	Player[] players = new Player[2];
+	
+	Game(Player[] players){
+		this.players = players;
+	}
+	
+	
+	void warGame(){
+		Card[] cards = new Card[52];
+		Teste teste = new Teste(cards);
+		teste.fillTeste();
+		teste.shuffleTeste();
+		
+		Card[] firstPlayerCards = teste.makeHalfTeste(0, 26);
+		Card[] secondPlayerCards = teste.makeHalfTeste(26, 52);
+		Player ivan = new Player("Ivan", firstPlayerCards);
+		Player spas = new Player("Spas", secondPlayerCards);
+		for (int i = 0; i < firstPlayerCards.length; i++) {
+			System.out.print(firstPlayerCards[i].getCardPower() + "vs");
+			System.out.print(secondPlayerCards[i].getCardPower()+ " ");
+		}
+		System.out.println();
+//		System.out.println(ivan.cards[0].getCardPower());
+//		System.out.println(spas.cards[0].getCardPower());
+//		System.out.println(ivan.cards[0].powerOfCardWithValue(ivan.cards[0]));
+//		System.out.println(spas.cards[0].powerOfCardWithValue(spas.cards[0]));
+		
+		
+		int ivanCounter = FIRST_PLAYER_START_SCORE;
+		int spasCounter = SECOND_PLAYER_START_SCORE;
+		int currentCountOfCards = 0; // умишлено не го правя константа, така е по-ясно
+		int numberOfRemainCards = 0; // умишлено не го правя константа, така е по-ясно
+		boolean isEnd = false;
+		for (int i = 0; i < secondPlayerCards.length; i++) {
+			while (ivan.cards[i].powerOfCardWithValue(ivan.cards[i]) == spas.cards[i]
+					.powerOfCardWithValue(spas.cards[i])) {
+				System.out.println(ivan.cards[i].getCardPower() +" "+spas.cards[i].getCardPower());
+				currentCountOfCards = currentCountOfCards + COUNT_OF_CARDS_WIN_IN_WAR;
+				//System.out.println("Current sum is " + currentCountOfCards);
+				i = i + COUNT_OF_CARDS_USED_FOR_WAR;
+				if (i >= secondPlayerCards.length) {
+					i = i - COUNT_OF_CARDS_USED_FOR_WAR;
+					numberOfRemainCards = (secondPlayerCards.length - 1) - i;
+					System.out.println("Number of remain cards in teste: " + numberOfRemainCards);
+					currentCountOfCards = (currentCountOfCards - COUNT_OF_CARDS_WIN_IN_WAR) + 
+							(2 * numberOfRemainCards);
+					System.out.println(ivan.getName() + " last card in teste:" + ivan.cards[INDEX_OF_LAST_CARD].getCardPower());
+					System.out.println(spas.getName() + " last card in teste:" + spas.cards[INDEX_OF_LAST_CARD].getCardPower());
+					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) > secondPlayerCards[25]
+							.powerOfCardWithValue(secondPlayerCards[25])) {
+						ivanCounter = ivanCounter + 2 + currentCountOfCards;
+						System.out.println("Ivan counter - " + ivanCounter);
+					}
+					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) < secondPlayerCards[25]
+							.powerOfCardWithValue(secondPlayerCards[25])) {
+						spasCounter = spasCounter + 2 + currentCountOfCards;
+						System.out.println("Spas counter - " + spasCounter);
+					}
+					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) == secondPlayerCards[25]
+							.powerOfCardWithValue(secondPlayerCards[25])) {
+						ivanCounter = ivanCounter + (currentCountOfCards / 2) + 1;
+						spasCounter = spasCounter + (currentCountOfCards / 2) + 1;
+					}
+					isEnd = true;
+					break;
+				}
+			}
+			if(isEnd == true){
+				break;
+			}
+			System.out.println("Ivan card:" +firstPlayerCards[i].getCardPower());
+			System.out.println("Spas card:" + secondPlayerCards[i].getCardPower());
+			if (firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) > 
+				secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])) {
+				ivanCounter = ivanCounter + 2 + currentCountOfCards;
+			}
+			if (firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) < 
+			secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])) {
+			spasCounter = spasCounter + 2 + currentCountOfCards;
+		}
+			System.out.println("Ivan counter:" + ivanCounter);
+			System.out.println("Spas counter:" + spasCounter);
+			currentCountOfCards = 0;
+			System.out.println();
+		}
+		
+		if(ivanCounter > spasCounter){
+			System.out.println("Ivan is winner " + ivanCounter);
+		}
+		if(ivanCounter < spasCounter){
+			System.out.println("Spas is winner " + spasCounter);
+		}
+		if(ivanCounter == spasCounter){
+			System.out.println("It is a drow " + ivanCounter );
+		}
+	}
+	
+
+
+}

@@ -1,0 +1,25 @@
+
+public class Computer {
+	int year;
+	float price;
+	boolean isNotebook;
+	int hardDiskMemory;
+	int freeMemomry;
+	String operationSystem;
+	
+	void changeOperationSystem(String operationSystem){
+		this.operationSystem = operationSystem;
+		
+	}
+	
+	void useMemory(int memory){
+		if(memory>this.freeMemomry){
+			System.out.println("Not enough free memory");
+		}
+		else{
+		this.freeMemomry = this.freeMemomry - memory;
+		//System.out.println("Free memory after last use is " + this.freeMemomry);
+		}
+	}
+	
+}

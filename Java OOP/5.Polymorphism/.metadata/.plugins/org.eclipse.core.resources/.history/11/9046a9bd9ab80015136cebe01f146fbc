@@ -1,0 +1,7 @@
+package Notepad;
+
+public interface INotepad {
+	void addText(int pageNumber);
+	void reWriteText(int pageNumber);
+	void deleteText(int pageNumbre);
+}

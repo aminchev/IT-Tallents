@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="Computer"/>
+<fullyQualifiedTypeName name="Student"/>
+<fullyQualifiedTypeName name="StudentGroup"/>
+<fullyQualifiedTypeName name="java.beans.beancontext.BeanContextChildSupport"/>
+<fullyQualifiedTypeName name="Task"/>
+<fullyQualifiedTypeName name="Emplooyee"/>
+</qualifiedTypeNameHistroy>

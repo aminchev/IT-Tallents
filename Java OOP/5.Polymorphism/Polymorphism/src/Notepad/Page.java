@@ -1,0 +1,79 @@
+package Notepad;
+
+public class Page {
+	private String title;
+	private String text;
+	private int page;
+	
+	
+	
+	public Page(String title, String text, int pageNumber) {
+		setTitle(title);
+		setText(text);
+		setPage(pageNumber);
+	}
+	
+	void addTextInPage(String someText){
+		this.setText(this.getText()+ " " +someText);
+	}
+	
+	void deleteTextFromPage(){
+		this.setText("");
+	}
+	
+	
+	String pageView(){
+		return this.getTitle() + "\n" + this.getText();
+	}
+	
+	
+	boolean searcWordInPage(String word){
+		if(word != null && !word.equals("")){
+			if(this.getText().contains(word)){
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	
+	boolean containsDigitsInPage(){
+		char[] array = this.getText().toCharArray();
+		for (int i = 0; i < array.length; i++) {
+			if(array[i]>=48 && array[i]<=57){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	
+	public String getTitle() {
+		return this.title;
+	}
+	public void setTitle(String title){
+		if(title != null){
+				this.title = title;
+		}
+	}
+	public String getText() {
+		return this.text;
+	}
+	public void setText(String text) {
+		if(text != null ){
+			this.text = text;
+		}
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+	
+	
+	
+	
+}

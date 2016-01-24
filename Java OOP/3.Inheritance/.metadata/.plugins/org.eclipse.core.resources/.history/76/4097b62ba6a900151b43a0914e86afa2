@@ -1,0 +1,26 @@
+package WarGame;
+
+public class Player {
+	private String name;
+	Card[] cards = new Card[26];
+	
+	//getter for name
+	String getName(){
+		return this.name;
+	}
+	//setter for name
+	void setName(String name){
+		if(name != null && !name.equals("")){
+			this.name = name;
+		}
+	}
+	
+	Player(String name, Card[] cards){
+		setName(name);
+		this.cards = cards;
+	}
+	
+//	int showCard(int counter){
+//		
+//	}
+}

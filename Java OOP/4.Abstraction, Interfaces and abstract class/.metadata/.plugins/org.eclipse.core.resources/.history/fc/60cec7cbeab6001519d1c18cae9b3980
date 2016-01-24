@@ -1,0 +1,8 @@
+package DistrictCourt;
+
+public class Jurist {
+	private String nameJurist;
+	private Dlujnost dlujnost;
+	private int staj;
+	
+}

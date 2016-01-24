@@ -1,0 +1,8 @@
+package DistrictCourt;
+
+public class RayonenSud {
+	private String nameDistrict;
+	private String addresDistrict;
+	private Jurist[] jurists; 
+	private Delo[] lawsuits;
+}

@@ -1,0 +1,9 @@
+package Geometria;
+
+public abstract class IzpuknalChetiriugalnik extends Chetiriugalnik {
+
+	IzpuknalChetiriugalnik(double a, double b, double c, double d) {
+		super(a, b, c, d);
+		
+	}
+}

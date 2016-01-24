@@ -1,0 +1,22 @@
+package DistrictCourt;
+
+public class Advokat extends Jurist{
+
+	public Advokat(String nameJurist, Dlujnost dlujnost, int staj, int brojDela) {
+		super(nameJurist, dlujnost, staj, brojDela);
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	void askQuestionToCitizens() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void makeNotesWithAnswers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,111 @@
+package WarGame;
+
+public class Game {
+	private static final int INDEX_OF_LAST_CARD = 25;
+	private static final int COUNT_OF_CARDS_USED_FOR_WAR = 3;
+	private static final int COUNT_OF_CARDS_WIN_IN_WAR = 6;
+	private static final int SECOND_PLAYER_START_SCORE = 0;
+	private static final int FIRST_PLAYER_START_SCORE = 0;
+	Player[] players = new Player[2];
+	
+	Game(Player[] players){
+		this.players = players;
+	}
+	
+	
+	void warGame(){
+		Card[] cards = new Card[52];
+		Teste teste = new Teste(cards);
+		teste.fillTeste();
+		teste.shuffleTeste();
+		
+		Card[] firstPlayerCards = teste.makeHalfTeste(0, 26);
+		Card[] secondPlayerCards = teste.makeHalfTeste(26, 52);
+		Player ivan = new Player("Ivan", firstPlayerCards);
+		Player spas = new Player("Spas", secondPlayerCards);
+		for (int i = 0; i < firstPlayerCards.length; i++) {
+			System.out.print(firstPlayerCards[i].getCardPower() + "vs");
+			System.out.print(secondPlayerCards[i].getCardPower()+ " ");
+		}
+		System.out.println();
+//		System.out.println(ivan.cards[0].getCardPower());
+//		System.out.println(spas.cards[0].getCardPower());
+//		System.out.println(ivan.cards[0].powerOfCardWithValue(ivan.cards[0]));
+//		System.out.println(spas.cards[0].powerOfCardWithValue(spas.cards[0]));
+		
+		
+		int ivanNumberOfCollectCards = FIRST_PLAYER_START_SCORE;
+		int spasNumberOfCollectCards = SECOND_PLAYER_START_SCORE;
+		int currentCountOfCards = 0; // умишлено не го правя константа, така е по-ясно
+		int numberOfRemainCards = 0; // умишлено не го правя константа, така е по-ясно
+		boolean isEnd = false;
+		for (int i = 0; i < secondPlayerCards.length; i++) {
+			while (ivan.cards[i].powerOfCardWithValue(ivan.cards[i]) == spas.cards[i]
+					.powerOfCardWithValue(spas.cards[i])) {
+				System.out.println(ivan.getName() + " card:" + ivan.cards[i].getCardPower());
+				System.out.println(spas.getName() + " card:" + spas.cards[i].getCardPower());
+				System.out.println(ivan.cards[i].getCardPower() +" vs "+spas.cards[i].getCardPower());
+				System.out.println("Get three next cards(if exists) and compare thirds of each");
+				currentCountOfCards = currentCountOfCards + COUNT_OF_CARDS_WIN_IN_WAR;
+				//System.out.println("Current sum is " + currentCountOfCards);
+				i = i + COUNT_OF_CARDS_USED_FOR_WAR;
+				if (i >= secondPlayerCards.length) {
+					i = i - COUNT_OF_CARDS_USED_FOR_WAR;
+					numberOfRemainCards = (secondPlayerCards.length - 1) - i;
+					System.out.println("Number of remain cards in teste: " + numberOfRemainCards);
+					currentCountOfCards = (currentCountOfCards - COUNT_OF_CARDS_WIN_IN_WAR) + 
+							(2 * numberOfRemainCards);
+					System.out.println(ivan.getName() + " last card in teste:" + ivan.cards[INDEX_OF_LAST_CARD].getCardPower());
+					System.out.println(spas.getName() + " last card in teste:" + spas.cards[INDEX_OF_LAST_CARD].getCardPower());
+					if (ivan.cards[INDEX_OF_LAST_CARD].powerOfCardWithValue(ivan.cards[INDEX_OF_LAST_CARD]) > 
+						spas.cards[INDEX_OF_LAST_CARD].powerOfCardWithValue(spas.cards[INDEX_OF_LAST_CARD])) {
+						ivanNumberOfCollectCards = ivanNumberOfCollectCards + 2 + currentCountOfCards;
+						System.out.println(ivan.getName()+" number of collect cards - " + ivanNumberOfCollectCards);
+					}
+					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) < secondPlayerCards[25]
+							.powerOfCardWithValue(secondPlayerCards[25])) {
+						spasNumberOfCollectCards = spasNumberOfCollectCards + 2 + currentCountOfCards;
+						System.out.println("Spas counter - " + spasNumberOfCollectCards);
+					}
+					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) == secondPlayerCards[25]
+							.powerOfCardWithValue(secondPlayerCards[25])) {
+						ivanNumberOfCollectCards = ivanNumberOfCollectCards + (currentCountOfCards / 2) + 1;
+						spasNumberOfCollectCards = spasNumberOfCollectCards + (currentCountOfCards / 2) + 1;
+					}
+					isEnd = true;
+					break;
+				}
+			}
+			if(isEnd == true){
+				break;
+			}
+			System.out.println(ivan.getName() +" card:" +firstPlayerCards[i].getCardPower());
+			System.out.println(spas.getName() + "card:" + secondPlayerCards[i].getCardPower());
+			if (firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) > 
+				secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])) {
+				ivanNumberOfCollectCards = ivanNumberOfCollectCards + 2 + currentCountOfCards;
+			}
+			if (firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) < 
+			secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])) {
+				spasNumberOfCollectCards = spasNumberOfCollectCards + 2 + currentCountOfCards;
+		}
+			System.out.println("Ivan counter:" + ivanNumberOfCollectCards);
+			System.out.println("Spas counter:" + spasNumberOfCollectCards);
+			currentCountOfCards = 0;
+			System.out.println();
+		}
+		
+		if(ivanNumberOfCollectCards > spasNumberOfCollectCards){
+			System.out.println("Ivan is winner " + ivanNumberOfCollectCards);
+		}
+		if(ivanNumberOfCollectCards < spasNumberOfCollectCards){
+			System.out.println("Spas is winner " + spasNumberOfCollectCards);
+		}
+		if(ivanNumberOfCollectCards == spasNumberOfCollectCards){
+			System.out.println("It is a drow " + ivanNumberOfCollectCards );
+		}
+	}
+	
+
+
+}

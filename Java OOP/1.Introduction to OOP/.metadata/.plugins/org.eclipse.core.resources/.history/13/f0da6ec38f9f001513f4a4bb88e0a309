@@ -1,0 +1,48 @@
+import javax.swing.plaf.synth.SynthSpinnerUI;
+
+public class GSM {
+	String model;
+	boolean hasSimCard;
+	String simMobileNumber;
+	int outgoingCallsDuration;
+	Call1 lastIncomingCall;
+	Call1 lastOutgoingCall;
+	
+	
+	void insertSimCard(String simMobileNumber){
+		if(simMobileNumber.charAt(0) == '0' && simMobileNumber.charAt(1) == '8' && 
+				simMobileNumber.length() == 10){
+			this.simMobileNumber = simMobileNumber;
+			this.hasSimCard = true;
+		}
+		else{
+			this.simMobileNumber = "Invalid number";
+		}
+	}
+	
+	void removeSimCard(){
+		this.hasSimCard = false;
+	}
+	
+	void call(GSM1 receiver, int duration){
+		if(duration<0){
+			System.out.println("Invalid duration!");
+			return;
+		}
+		if(this.simMobileNumber.equals(receiver.simMobileNumber)){
+			System.out.println("You can not speak with yourself!");
+			return;
+		}
+		if(this.hasSimCard == false || receiver.hasSimCard == false){
+			System.out.println("Call can not be made");
+			return;
+		}
+		this.lastOutgoingCall = lastOutgoingCall;
+		receiver.lastIncomingCall = this.lastOutgoingCall;
+		this.outgoingCallsDuration = this.outgoingCallsDuration + duration;
+	}
+	
+	
+
+}
+	

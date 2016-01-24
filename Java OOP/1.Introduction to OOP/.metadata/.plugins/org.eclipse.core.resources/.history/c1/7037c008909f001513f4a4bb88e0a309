@@ -1,0 +1,49 @@
+
+
+public class CallGSMDemo {
+	static void printInfoForLastOutgoingCall(){
+//		GSM samsung = new GSM();
+//		samsung.hasSimCard=true;
+//		samsung.model = "S200";
+//		samsung.simMobileNumber
+		
+		
+	}
+	
+	public static void main(String[] args) {
+		GSM samsung = new GSM();
+		samsung.hasSimCard = true;
+		samsung.model = "L200";
+		samsung.outgoingCallsDuration = 85;
+		samsung.simMobileNumber = "0812345678";
+		
+		
+		GSM nokia = new GSM();
+		nokia.hasSimCard = true;
+		nokia.model = "Lumia";
+		nokia.outgoingCallsDuration = 40;
+		nokia.simMobileNumber = "0800000000";
+		
+		
+		
+		Call obajdane = new Call();
+		obajdane.celler = "0899999999";
+		obajdane.receiver = "0877777777";
+		obajdane.priceForAMinute = 2;
+		obajdane.duration = 5;
+		
+		nokia.lastIncomingCall = obajdane;
+		
+		samsung.insertSimCard("0812345578");
+		System.out.println(samsung.simMobileNumber);
+		System.out.println(nokia.lastIncomingCall);
+		
+		samsung.call(nokia, 10);
+		
+		
+		
+				
+		
+		
+	}
+}

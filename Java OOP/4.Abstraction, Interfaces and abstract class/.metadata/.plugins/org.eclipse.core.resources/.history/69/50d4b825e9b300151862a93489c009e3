@@ -1,0 +1,24 @@
+package Geometria;
+
+public class DemoClass {
+
+	public static void main(String[] args) {
+		Trapets trap = new Trapets(5,6,4,3,2.3);
+		IzpuknalChetiriugalnik test = new Kvadrat(5);
+		
+		Kvadrat kv = new Kvadrat(3);
+		double z =  kv.calcPerimetar();
+		System.out.println(z);
+		
+		Pravougulnik prav = new Pravougulnik(3, 5);
+		double x = prav.calcPerimetar();
+		double y = prav.calcSurface();
+		System.out.println("Лицето на правоъгълника е " + y );
+		
+		double obikolka = trap.calcPerimetar();
+		double lice = trap.calcSurface();
+		System.out.println(obikolka);
+		System.out.println(lice);
+	}
+
+}

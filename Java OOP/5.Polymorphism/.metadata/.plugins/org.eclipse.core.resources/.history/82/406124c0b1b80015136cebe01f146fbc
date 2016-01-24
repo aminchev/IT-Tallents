@@ -1,0 +1,12 @@
+package Notepad;
+
+public class SecuredNotepad extends SimpleNotepad {
+
+	
+	
+	public SecuredNotepad(Page[] pages) {
+		super(pages);
+		
+	}
+
+}

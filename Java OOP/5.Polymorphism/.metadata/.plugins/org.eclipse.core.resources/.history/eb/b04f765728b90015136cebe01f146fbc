@@ -1,0 +1,79 @@
+package Notepad;
+
+public class SecuredNotepad extends SimpleNotepad {
+	private String parola; 
+	
+	
+	public SecuredNotepad(Page[] pages, String parola) {
+		super(pages);
+		this.setParola(parola);
+	}
+	
+	public void addText(int pageIndex, String textForAdding, String parola){
+		if(isParolaCorrect(parola)){
+			super.addText(pageIndex, textForAdding);
+		}
+		else{
+			System.out.println("Wrong password");
+		}
+	}
+	
+	public void reWriteText(int pageIndex, String textForReWtiting, String parola){
+		if(isParolaCorrect(parola)){
+			super.reWriteText(pageIndex, textForReWtiting);
+		}
+		else{
+			System.out.println("Wrong password");
+		}
+	}
+	
+	public void deleteText(int pageIndex, String parola) {
+		if(isParolaCorrect(parola)){
+			super.deleteText(pageIndex);
+		}
+		else{
+			System.out.println("Wrong password");
+		}
+	}
+	
+	public void reviewOfPages(String parola){
+		if(isParolaCorrect(parola)){
+			super.reviewOfPages();
+		}
+		else{
+			System.out.println("Wrong password");
+		}
+	}
+	
+	public boolean searchWord(int pageIndex, String word, String parola){
+		if(this.isParolaCorrect(parola)){
+			return super.searchWord(pageIndex, word);
+		}
+		else{
+			System.out.println("Wrong password");
+		}
+		return false;
+	}
+	
+	public void printAllPagesWithDigits(String parola) {
+		if(this.isParolaCorrect(parola)){
+			super.printAllPagesWithDigits();
+		}
+		else{
+			System.out.println("Wrong parola!");
+		}
+	}
+
+	private boolean isParolaCorrect(String parola) {
+		return this.getParola().equals(parola);
+	}
+
+
+	public String getParola() {
+		return this.parola;
+	}
+	public void setParola(String parola) {
+		this.parola = parola;
+	}
+
+}

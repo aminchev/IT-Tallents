@@ -1,0 +1,19 @@
+package Geometria;
+
+public class Kvadrat extends IzpuknalChetiriugalnik {
+
+	
+	
+	Kvadrat(double a, double b, double c, double d) {
+		super(a, b, c, d);
+		
+	}
+
+	@Override
+	public double calcSurface() {
+		return this.getA()*this.getB();
+	}
+
+	
+
+}

@@ -1,0 +1,10 @@
+package Geometria;
+
+public class Pravougulnik  extends Kvadrat{
+
+	Pravougulnik(double a, double b, double c, double d) {
+		super(a, b, c, d);
+		
+	}
+
+}

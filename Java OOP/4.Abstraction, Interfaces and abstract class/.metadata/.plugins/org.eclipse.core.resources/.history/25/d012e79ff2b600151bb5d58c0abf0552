@@ -1,0 +1,22 @@
+package DistrictCourt;
+
+public class Sadiq extends Jurist {
+
+	
+	
+	
+	
+	
+	@Override
+	void askQuestionToCitizens() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void makeNotesWithAnswers() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

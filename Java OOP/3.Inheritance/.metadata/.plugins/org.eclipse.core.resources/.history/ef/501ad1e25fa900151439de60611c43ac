@@ -1,0 +1,25 @@
+package WarGame;
+
+public class WarGameDemo {
+
+	public static void main(String[] args) {
+		Card[] cards = new Card[52];
+		Teste teste = new Teste(cards);
+		teste.fillTeste();
+		teste.shuffleTeste();
+//		for (int i = 0; i < cards.length; i++) {
+//			System.out.println(cards[i].powerOfCardWithValue(cards[i]));
+//		}
+		
+		Card[] firstPlayerCards = teste.makeHalfTeste(0, 26);
+		Card[] secondPlayerCards = teste.makeHalfTeste(26, 52);
+
+		
+		Player ivan = new Player("Ivan", firstPlayerCards);
+		Player spas = new Player("Spas", secondPlayerCards);
+		
+		
+
+	}
+
+}

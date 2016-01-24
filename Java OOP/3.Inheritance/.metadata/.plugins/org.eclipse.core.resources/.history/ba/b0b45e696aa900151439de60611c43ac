@@ -1,0 +1,46 @@
+package WarGame;
+
+public class WarGameDemo {
+
+	public static void main(String[] args) {
+		Card[] cards = new Card[52];
+		Teste teste = new Teste(cards);
+		teste.fillTeste();
+		teste.shuffleTeste();
+
+//			System.out.println(cards[i].powerOfCardWithValue(cards[i]));
+
+		
+		Card[] firstPlayerCards = teste.makeHalfTeste(0, 26);
+		Card[] secondPlayerCards = teste.makeHalfTeste(26, 52);	
+		Player ivan = new Player("Ivan", firstPlayerCards);
+		Player spas = new Player("Spas", secondPlayerCards);
+		
+		
+		int ivanCounter = 0;
+		int spasCouter = 0;
+		int currentSum = 0;
+		for (int i = 0; i < secondPlayerCards.length; i++) {
+			while(firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) == 
+					secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])){
+				currentSum = currentSum+6;
+				i = i+3;
+				if(i>=secondPlayerCards.length){
+					
+				}
+			}
+			
+			
+			if(ivan.cards[i].powerOfCardWithValue(cards[i]) > spas.cards[i].powerOfCardWithValue(cards[i])){
+				ivanCounter = ivanCounter+2+currentSum;
+			}
+			if(ivan.cards[i].powerOfCardWithValue(cards[i]) > spas.cards[i].powerOfCardWithValue(cards[i])){
+				spasCouter = spasCouter + 2 + currentSum;
+			}
+		}
+		
+		
+
+	}
+
+}

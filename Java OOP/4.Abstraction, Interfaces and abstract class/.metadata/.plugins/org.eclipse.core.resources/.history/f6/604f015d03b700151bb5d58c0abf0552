@@ -1,0 +1,9 @@
+package DistrictCourt;
+
+public abstract class Delo {
+	private Sadiq sadiq;
+	private SudebenZasedatel[] sudebniZzasedateli;
+	private Obvinqem obvinqem;
+	private Obvinitel obvinitel;
+	
+}

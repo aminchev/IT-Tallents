@@ -1,0 +1,52 @@
+package DistrictCourt;
+
+public abstract class Jurist {
+	private String nameJurist;
+	private Dlujnost dlujnost;
+	private int staj;
+	private int brojDela;
+	
+	
+	
+	
+	
+	abstract void askQuestionToCitizens();
+	abstract void makeNotesWithAnswers();
+	
+	
+	public String getNameJurist() {
+		return this.nameJurist;
+	}
+	public void setNameJurist(String nameJurist) {
+		if(nameJurist != null && !nameJurist.equals("")){
+			this.nameJurist = nameJurist;
+		}
+	}
+	
+	public Dlujnost getDlujnost() {
+		return this.dlujnost;
+	}
+	public void setDlujnost(Dlujnost dlujnost) {
+		if(dlujnost != null){
+			this.dlujnost = dlujnost;
+		}
+	}
+	
+	public int getStaj() {
+		return this.staj;
+	}
+	public void setStaj(int staj) {
+		if(staj>0){
+			this.staj = staj;
+		}
+	}
+	
+	public int getBrojDela() {
+		return this.brojDela;
+	}
+	public void setBrojDela(int brojDela) {
+		if(brojDela>0){
+			this.brojDela = brojDela;
+		}
+	}
+}

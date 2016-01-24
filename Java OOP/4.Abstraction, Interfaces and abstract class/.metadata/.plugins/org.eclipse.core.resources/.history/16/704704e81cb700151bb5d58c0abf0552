@@ -1,0 +1,22 @@
+package DistrictCourt;
+
+public class SudebenZasedatel extends Jurist {
+
+	public SudebenZasedatel(String nameJurist, Dlujnost dlujnost, int staj, int brojDela) {
+		super(nameJurist, dlujnost, staj, brojDela);
+		
+	}
+
+	@Override
+	void askQuestionToCitizens() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	void makeNotesWithAnswers() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

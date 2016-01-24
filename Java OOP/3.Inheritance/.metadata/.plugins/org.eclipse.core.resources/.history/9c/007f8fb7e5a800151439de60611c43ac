@@ -1,0 +1,91 @@
+package WarGame;
+
+public class Teste {
+	Card[] cards;
+	private int cardCount;
+	
+	//getter for cardCount
+	int getCardCount(){
+		return this.cardCount;
+	}
+	 
+	//setter for cardCount
+	void setCardCount(int cardCount){
+		if(cardCount>0 && cardCount<=52){
+			this.cardCount = cardCount;
+		}
+	}
+	
+	Teste(Card[] cards, int cardCount){
+		this.cards = cards;
+		setCardCount(cardCount);
+	}
+
+	void makeTeste(){
+		int index = 0;
+		Card[] cards = new Card[52];
+		for(int i = 2; i<=14; i++){
+			for(int j = 1; j<=4; j++){
+				String cardPower = "";
+				String cardSuit = "";
+				switch(i){
+				case 1:
+					cardPower="2";
+					break;
+				case 2:
+					cardPower="3";
+					break;
+				case 3:
+					cardPower="4";
+					break;
+				case 4:
+					cardPower="5";
+					break;
+				case 5:
+					cardPower="6";
+					break;
+				case 6:
+					cardPower="7";
+					break;
+				case 7:
+					cardPower="8";
+					break;
+				case 8:
+					cardPower="9";
+					break;
+				case 9:
+					cardPower="10";
+					break;
+				case 10:
+					cardPower="J";
+					break;
+				case 11:
+					cardPower="Q";
+					break;
+				case 12:
+					cardPower="K";
+					break;
+				case 13:
+					cardPower="A";
+					break;
+				}
+				switch(j){
+				case 1:
+					cardSuit = "Clubs";
+					break;
+				case 2:
+					cardSuit = "Diamonds";
+					break;
+				case 3:
+					cardSuit = "Hearts";
+					break;
+				case 4:
+					cardSuit = "Spades";
+					break;
+				}
+				cards[index] = new Card(cardPower, cardSuit);
+			}
+		}
+	}
+	
+}

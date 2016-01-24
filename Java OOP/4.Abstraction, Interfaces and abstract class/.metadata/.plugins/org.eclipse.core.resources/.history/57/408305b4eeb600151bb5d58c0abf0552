@@ -1,0 +1,11 @@
+package DistrictCourt;
+
+public abstract class Jurist {
+	private String nameJurist;
+	private Dlujnost dlujnost;
+	private int staj;
+	private int brojDela;
+	
+	abstract void askQuestionToCitizens();
+	abstract void makeNotesWithAnswers();
+}

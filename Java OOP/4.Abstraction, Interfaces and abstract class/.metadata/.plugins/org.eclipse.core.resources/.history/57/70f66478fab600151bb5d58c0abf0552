@@ -1,0 +1,7 @@
+package DistrictCourt;
+
+public abstract class Grajdanin {
+	private String fullName;
+	private String addresGrajdanin;
+	private int age;
+}

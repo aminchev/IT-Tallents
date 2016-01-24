@@ -1,0 +1,38 @@
+package DistrictCourt;
+
+public class GrajdanskoDelo extends Delo {
+
+	private final SudebenZasedatel[] sudebeniZasedateli = new SudebenZasedatel[3];
+	
+	public GrajdanskoDelo(Sadiq sadiq, SudebenZasedatel[] sudebeniZasedateli, Obvinqem obvinqem, Obvinitel obvinitel,
+			Svidetel[] svideteli) {
+		super(sadiq, sudebeniZasedateli, obvinqem, obvinitel, svideteli);
+		
+		
+	}
+
+	@Override
+	void provedi() {
+		this.encreaseNumberOfDela();
+		int j = 0;
+		while(this.getObvinitel().getAdvokati()[j] != null){
+			for(int i = 0; i<3; i++){
+				this.getObvinitel().getAdvokati()[j].askQuestionToCitizens(this.getObvinqem());
+			}
+			int z = 0;
+			while(this.getSvideteli()[z] != null){
+				for(int i = 0; i<2; i++){
+					this.getObvinitel().getAdvokati()[j].askQuestionToCitizens(this.getSvideteli()[z]);
+				}
+				z++;
+			}
+			j++;
+		}
+		this.askSvideli();
+		boolean isGuilt = this.isGuilt();
+		int zatvor = this.prisuda();
+		
+		
+	}
+
+}

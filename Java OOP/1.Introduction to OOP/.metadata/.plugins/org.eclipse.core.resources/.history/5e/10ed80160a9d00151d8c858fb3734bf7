@@ -1,0 +1,26 @@
+
+public class RealComputers {
+
+	public static void main(String[] args) {
+		Computer laptop = new Computer();
+		Computer desktopComp = new Computer();
+		
+		laptop.year = 2014;
+		laptop.price = 1499.99f;
+		laptop.hardDiskMemory = 800;
+		laptop.freeMemomry = 500;
+		laptop.operationSystem = "Windows 8";
+		
+		desktopComp.year = 2008;
+		desktopComp.price = 300;
+		desktopComp.hardDiskMemory = 250;
+		desktopComp.freeMemomry = 110;
+		desktopComp.operationSystem = "Linux";
+		
+		desktopComp.useMemory(100);
+		laptop.changeOperationSystem("Windows 10");
+		System.out.println(desktopComp.freeMemomry);
+		
+	}
+
+}

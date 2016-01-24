@@ -1,0 +1,32 @@
+package Notepad;
+
+public class SimpleNotepad implements INotepad {
+	private Page[] pages;
+	
+	
+	
+	@Override
+	public void addText(int pageNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reWriteText(int pageNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteText(int pageNumbre) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void reviewOfPages() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

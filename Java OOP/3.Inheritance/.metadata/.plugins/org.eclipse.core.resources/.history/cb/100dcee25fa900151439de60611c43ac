@@ -1,0 +1,19 @@
+package WarGame;
+
+public class Game {
+	Player[] players = new Player[2];
+	
+	Game(Player[] players){
+		this.players = players;
+	}
+
+	Card[] cards = new Card[52];
+	Teste teste = new Teste(cards);
+	
+	
+	
+	
+//	void warGameAction(){
+//		
+//	}
+}

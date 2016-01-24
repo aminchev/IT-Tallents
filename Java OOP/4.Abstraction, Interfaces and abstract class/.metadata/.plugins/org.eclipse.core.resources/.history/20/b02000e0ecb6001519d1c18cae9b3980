@@ -1,0 +1,6 @@
+package DistrictCourt;
+
+public interface Dlujnost {
+	void askQuestionToCitizens();
+	void makeNotesWithAnswers();
+}

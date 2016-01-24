@@ -1,0 +1,45 @@
+package Notepad;
+
+public class Page {
+	private String title;
+	private String text;
+	
+	public Page(String title, String text) {
+		setTitle(title);
+		setText(text);
+	}
+	
+	void addText(String someText){
+		this.setText(this.getText()+someText);
+	}
+	
+	void deleteText(){
+		this.setText("");
+	}
+	
+//	String pageView(){
+//		return this.getText() + \n
+//	}
+	
+	
+	
+	public String getTitle() {
+		return this.title;
+	}
+	public void setTitle(String title){
+		if(title != null && !title.equals("")){
+				this.title = title;
+		}
+	}
+	public String getText() {
+		return this.text;
+	}
+	public void setText(String text) {
+		if(text != null && !text.equals("")){
+			this.text = text;
+		}
+	}
+	
+	
+	
+}

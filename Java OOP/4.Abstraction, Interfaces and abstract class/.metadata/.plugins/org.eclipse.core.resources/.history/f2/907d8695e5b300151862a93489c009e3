@@ -1,0 +1,13 @@
+package Geometria;
+
+public class Pravougulnik  extends Kvadrat{
+
+	 Pravougulnik(double a, double b) {
+		super(a);
+	}
+	 
+	@Override
+	public double calcSurface() {
+		return this.getA()*this.getB();
+	}
+}

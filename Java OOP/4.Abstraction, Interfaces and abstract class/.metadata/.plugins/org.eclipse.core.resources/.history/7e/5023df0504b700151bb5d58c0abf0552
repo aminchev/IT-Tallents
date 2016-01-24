@@ -1,0 +1,62 @@
+package DistrictCourt;
+
+public abstract class Delo {
+	private Sadiq sadiq;
+	private SudebenZasedatel[] sudebniZzasedateli;
+	private Obvinqem obvinqem;
+	private Obvinitel obvinitel;
+	private Svidetel[] svideteli;
+	
+	
+	abstract void provedi();
+
+
+	public Sadiq getSadiq() {
+		return this.sadiq;
+	}
+	public void setSadiq(Sadiq sadiq) {
+		if(sadiq != null){
+			this.sadiq = sadiq;
+		}
+	}
+
+
+	public SudebenZasedatel[] getSudebniZzasedateli() {
+		return this.sudebniZzasedateli;
+	}
+	public void setSudebniZzasedateli(SudebenZasedatel[] sudebniZzasedateli) {
+		if(sudebniZzasedateli != null){
+			this.sudebniZzasedateli = sudebniZzasedateli;
+		}
+	}
+
+
+	public Obvinqem getObvinqem() {
+		return this.obvinqem;
+	}
+	public void setObvinqem(Obvinqem obvinqem) {
+		if(obvinqem != null){
+			this.obvinqem = obvinqem;
+		}
+	}
+
+
+	public Obvinitel getObvinitel() {
+		return obvinitel;
+	}
+
+
+	public void setObvinitel(Obvinitel obvinitel) {
+		this.obvinitel = obvinitel;
+	}
+
+
+	public Svidetel[] getSvideteli() {
+		return svideteli;
+	}
+
+
+	public void setSvideteli(Svidetel[] svideteli) {
+		this.svideteli = svideteli;
+	}
+}

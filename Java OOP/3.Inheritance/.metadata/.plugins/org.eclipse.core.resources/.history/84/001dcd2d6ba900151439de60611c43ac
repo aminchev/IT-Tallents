@@ -1,0 +1,18 @@
+package WarGame;
+
+public class Game {
+	Player[] players = new Player[2];
+	
+	Game(Player[] players){
+		this.players = players;
+	}
+
+
+
+//		System.out.println(cards[i].powerOfCardWithValue(cards[i]));
+
+	
+//	void warGameAction(){
+//		
+//	}
+}

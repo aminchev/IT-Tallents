@@ -1,0 +1,10 @@
+package DistrictCourt;
+
+public class Obvinitel extends Grajdanin {
+
+	public Obvinitel(String fullname, String addresGrajdanin, int age) {
+		super(fullname, addresGrajdanin, age);
+		
+	}
+
+}

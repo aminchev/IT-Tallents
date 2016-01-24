@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.print.CancelablePrintJob"/>
+<fullyQualifiedTypeName name="Geometria.Romb"/>
+<fullyQualifiedTypeName name="Geometria.Chetiriugalnik"/>
+<fullyQualifiedTypeName name="Geometria.Usporednik"/>
+<fullyQualifiedTypeName name="javax.security.auth.callback.Callback"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="PartShop.IShop"/>
+<fullyQualifiedTypeName name="javax.print.attribute.standard.NumberOfDocuments"/>
+<fullyQualifiedTypeName name="PartShop.PartCategory"/>
+<fullyQualifiedTypeName name="PartShop.Part"/>
+<fullyQualifiedTypeName name="TaskEmployee.AllWork"/>
+<fullyQualifiedTypeName name="TaskEmployee.Employee"/>
+</qualifiedTypeNameHistroy>

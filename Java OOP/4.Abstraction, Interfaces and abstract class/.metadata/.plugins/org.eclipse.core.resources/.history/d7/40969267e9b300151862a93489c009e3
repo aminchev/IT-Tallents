@@ -1,0 +1,20 @@
+package Geometria;
+
+public class Pravougulnik  extends IzpuknalChetiriugalnik{
+
+	 Pravougulnik(double a, double b) {
+		super(a);
+	}
+	 
+	@Override
+	public double calcSurface() {
+		return this.getA()*this.getB();
+	}
+	
+	@Override
+	public double calcPerimetar() {
+		return this.getA()*2 + this.getB()*2;
+	}
+	
+	
+}

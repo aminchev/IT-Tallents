@@ -1,0 +1,35 @@
+package WarGame;
+
+public class Card {
+	private String cardPower;
+	private String cardSuit;
+	
+	//getter for cardPower
+	String getCardPower(){
+		return this.cardPower;
+	}
+	//setter for cardPower
+	void setCardPower(String cardPower){
+		if(cardPower != null && !cardPower.equals("")){
+			this.cardPower = cardPower;
+		}
+	}
+	
+	//getter for cardSuit
+	String getCardSuit(){
+		return this.cardSuit;
+	}
+	//setter for cardSuit
+	void setCardSuit(String cardSuit){
+		if(cardSuit != null && (cardSuit.equals("Clubs") || cardSuit.equals("Diamonds") ||
+				cardSuit.equals("Hearts") || cardSuit.equals("Spades"))){
+			this.cardSuit = cardSuit;
+		}
+	}
+	
+	Card(String cardPower, String cardSuit){
+		setCardPower(cardPower);
+		setCardSuit(cardSuit);
+	}
+	
+}

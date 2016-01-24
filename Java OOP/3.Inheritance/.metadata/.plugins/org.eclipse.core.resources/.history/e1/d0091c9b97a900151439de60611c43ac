@@ -1,0 +1,104 @@
+package WarGame;
+
+public class Game {
+	private static final int SECOND_PLAYER_START_SCORE = 0;
+	private static final int FIRST_PLAYER_START_SCORE = 0;
+	Player[] players = new Player[2];
+	
+	Game(Player[] players){
+		this.players = players;
+	}
+	
+	
+	void warGame(){
+		Card[] cards = new Card[52];
+		Teste teste = new Teste(cards);
+		teste.fillTeste();
+		teste.shuffleTeste();
+		
+		Card[] firstPlayerCards = teste.makeHalfTeste(0, 26);
+		Card[] secondPlayerCards = teste.makeHalfTeste(26, 52);
+		Player ivan = new Player("Ivan", firstPlayerCards);
+		Player spas = new Player("Spas", secondPlayerCards);
+		for (int i = 0; i < firstPlayerCards.length; i++) {
+			System.out.print(firstPlayerCards[i].getCardPower() + "vs");
+			System.out.print(secondPlayerCards[i].getCardPower()+ " ");
+		}
+		System.out.println();
+		System.out.println(ivan.cards[23].getCardPower());
+		System.out.println(spas.cards[23].getCardPower());
+		System.out.println(ivan.cards[23].powerOfCardWithValue(cards[23]));
+		System.out.println(spas.cards[23].powerOfCardWithValue(cards[23]));
+		
+		
+//		int ivanCounter = FIRST_PLAYER_START_SCORE;
+//		int spasCounter = SECOND_PLAYER_START_SCORE;
+//		int currentSum = 0; // умишлено не го правя константа
+//		int temp = 0; // умишлено не го правя константа
+//		boolean isEnd = false;
+//		for (int i = 0; i < secondPlayerCards.length; i++) {
+//			while (ivan.cards[i].powerOfCardWithValue(cards[i]) == spas.cards[i]
+//					.powerOfCardWithValue(cards[i])) {
+//				System.out.println(firstPlayerCards[i].getCardPower() +" "+secondPlayerCards[i].getCardPower());
+//				currentSum = currentSum + 6;
+//				System.out.println("Current sum is " + currentSum);
+//				i = i + 3;
+//				if (i >= secondPlayerCards.length) {
+//					i = i - 3;
+//					temp = (secondPlayerCards.length - 1) - i;
+//					System.out.println("Temp " + temp);
+//					currentSum = (currentSum - 6) + (2 * temp);
+//					System.out.println("First last card " + firstPlayerCards[25].getCardPower());
+//					System.out.println("Second last card " + secondPlayerCards[25].getCardPower());
+//					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) > secondPlayerCards[25]
+//							.powerOfCardWithValue(secondPlayerCards[25])) {
+//						ivanCounter = ivanCounter + 2 + currentSum;
+//						System.out.println("Ivan counter - " + ivanCounter);
+//					}
+//					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) < secondPlayerCards[25]
+//							.powerOfCardWithValue(secondPlayerCards[25])) {
+//						spasCounter = spasCounter + 2 + currentSum;
+//						System.out.println("Spas counter - " + spasCounter);
+//					}
+//					if (firstPlayerCards[25].powerOfCardWithValue(firstPlayerCards[25]) == secondPlayerCards[25]
+//							.powerOfCardWithValue(secondPlayerCards[25])) {
+//						ivanCounter = ivanCounter + (currentSum / 2) + 1;
+//						spasCounter = spasCounter + (currentSum / 2) + 1;
+//					}
+//					isEnd = true;
+//					break;
+//				}
+//			}
+//			if(isEnd == true){
+//				break;
+//			}
+//			System.out.println("Ivan card:" +firstPlayerCards[i].getCardPower());
+//			System.out.println("Spas card:" + secondPlayerCards[i].getCardPower());
+//			if (firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) > 
+//				secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])) {
+//				ivanCounter = ivanCounter + 2 + currentSum;
+//			}
+//			if (firstPlayerCards[i].powerOfCardWithValue(firstPlayerCards[i]) < 
+//			secondPlayerCards[i].powerOfCardWithValue(secondPlayerCards[i])) {
+//			spasCounter = spasCounter + 2 + currentSum;
+//		}
+//			System.out.println("Ivan counter:" + ivanCounter);
+//			System.out.println("Spas counter:" + spasCounter);
+//			currentSum = 0;
+//			System.out.println();
+//		}
+//		
+//		if(ivanCounter > spasCounter){
+//			System.out.println("Ivan is winner " + ivanCounter);
+//		}
+//		if(ivanCounter < spasCounter){
+//			System.out.println("Spas is winner " + spasCounter);
+//		}
+//		if(ivanCounter == spasCounter){
+//			System.out.println("It is a drow " + ivanCounter );
+//		}
+	}
+	
+
+
+}

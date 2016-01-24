@@ -1,0 +1,6 @@
+package Geometria;
+
+public interface IChetiriugulnaFigure {
+	double calcPerimetar(double a, double b, double c, double d);
+	double calcSurface(double a, double b, double height);
+}

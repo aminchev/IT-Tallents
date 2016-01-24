@@ -1,0 +1,9 @@
+package DistrictCourt;
+
+public class Obvinqem extends Grajdanin {
+
+	public Obvinqem(String fullname, String addresGrajdanin, int age) {
+		super(fullname, addresGrajdanin, age);
+	}
+
+}

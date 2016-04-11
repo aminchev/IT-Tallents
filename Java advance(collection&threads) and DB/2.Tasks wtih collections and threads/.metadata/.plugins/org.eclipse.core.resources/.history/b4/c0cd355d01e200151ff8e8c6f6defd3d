@@ -1,0 +1,59 @@
+package PostWithVideo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Citizen implements Runnable {
+	private String firstName;
+	private String lastName;
+	private String address;
+	
+	private List<MailBox> mailboxes = new ArrayList<MailBox>();
+
+	public Citizen(String firstName, String lastName, String address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Citizen [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + "]";
+	}
+
+	@Override
+	public void run() {
+		for (int numberOfLetters = 0; numberOfLetters < 30; numberOfLetters++) {
+			if(Math.random()>0.5){
+				Letter letter  = new Letter();
+			}
+		}
+		
+	}
+	
+	
+}

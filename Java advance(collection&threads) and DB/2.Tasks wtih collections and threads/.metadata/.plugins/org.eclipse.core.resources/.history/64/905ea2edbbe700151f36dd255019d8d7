@@ -1,0 +1,28 @@
+package ExamTaskHome;
+
+public class TransporterEmployee extends Person implements Runnable {
+
+	private String city;
+	private Office office;
+	
+	public TransporterEmployee(String name, String phoneNumber, String privateNumber, Address address, String city) {
+		super(name, phoneNumber, privateNumber, address);
+		this.setCity(city);
+		
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	private void setCity(String city) {
+		this.city = city;
+	}
+
+	@Override
+	public void run() {
+		
+		
+	}
+
+}

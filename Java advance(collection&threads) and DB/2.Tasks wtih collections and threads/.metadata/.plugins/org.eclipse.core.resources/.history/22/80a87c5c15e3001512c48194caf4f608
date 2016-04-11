@@ -1,0 +1,53 @@
+package TestLib4Again;
+
+import java.util.List;
+
+public abstract class ReadingMaterial {
+	
+	private static int curId = 1;
+	private String name;
+	private String izdatelstvo;
+	private int id;
+	private boolean isTaken;
+	List<History> historyOfMaterial;
+	
+	public ReadingMaterial(String name, String izdatelstvo) {
+		this.id = curId++;
+		this.setName(name);
+		this.setIzdatelstvo(izdatelstvo);
+	}
+
+	public abstract boolean canBeTaken();
+	
+	public String getName() {
+		return name;
+	}
+
+	private void setName(String name) {
+		if(name!=null && name.length()>0){
+			this.name = name;
+		}
+	}
+
+	public String getIzdatelstvo() {
+		return izdatelstvo;
+	}
+
+	private void setIzdatelstvo(String izdatelstvo) {
+		if(izdatelstvo!= null && izdatelstvo.length()>0){
+			this.izdatelstvo = izdatelstvo;
+		}
+	}
+
+	public boolean isTaken() {
+		return isTaken;
+	}
+
+	public void setTaken(boolean isTaken) {
+		this.isTaken = isTaken;
+	}
+	
+	
+	
+	
+}

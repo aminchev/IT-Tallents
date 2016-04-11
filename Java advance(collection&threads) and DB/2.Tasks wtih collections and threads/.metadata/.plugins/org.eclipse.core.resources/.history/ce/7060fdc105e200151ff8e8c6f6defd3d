@@ -1,0 +1,77 @@
+package PostWithVideo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Citizen implements Runnable {
+	private String firstName;
+	private String lastName;
+	private String address;
+	
+	private static List<MailBox> mailboxes;
+
+	static{
+		mailboxes = = new ArrayList<MailBox>();
+		for(int mailbox = 1; mailbox<=25; mailbox++){
+			mailboxes.add(new MailBox());
+		}
+	}
+	
+	public Citizen(String firstName, String lastName, String address) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Citizen [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + "]";
+	}
+
+	@Override
+	public void run() {
+		for (int numberOfLetters = 0; numberOfLetters < 30; numberOfLetters++) {
+			MailObject mail = sendRandonMailObject();
+			
+		}
+		
+	}
+
+	private synchronized MailObject sendRandonMailObject() {
+		MailObject result = null;
+		if(Math.random()>0.5){
+			 result  = new Letter(this, new Citizen("Pesho", "Peshev", "Banishora 9"));
+			 this.mailboxes.get((int) (Math.random()*this.mailboxes.size())).addLetter(result);
+		}
+		else{
+			 result = new Parcel(this, new Citizen("Mara", "Ivanovo", "Ta nqkude"));
+		}
+		return result;
+	}
+	
+	
+}

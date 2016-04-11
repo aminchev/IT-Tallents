@@ -1,0 +1,11 @@
+package ExamTaskHome;
+
+public class PriemchikEmployee extends Person {
+
+	public PriemchikEmployee(String name, String phoneNumber, String privateNumber, Address address) {
+		super(name, phoneNumber, privateNumber, address);
+	}
+	
+	
+
+}

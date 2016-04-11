@@ -1,0 +1,21 @@
+package PostWithVideo;
+
+public class Parcel extends MailObject {
+
+	public Parcel(Citizen sender, Citizen receiver) {
+		super(sender, receiver);
+		
+	}
+
+	@Override
+	public float getTax() {
+		
+	}
+
+	@Override
+	public float getTimeForDelivery() {
+		
+		return 0;
+	}
+
+}

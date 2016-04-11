@@ -1,0 +1,22 @@
+package ExamTaskHome;
+
+public class PriemchikEmployee extends Person {
+
+	private String city;
+
+	public PriemchikEmployee(String name, String phoneNumber, String privateNumber, Address address, String city) {
+		super(name, phoneNumber, privateNumber, address);
+		this.setCity(city); 
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	private void setCity(String city) {
+		if (city != null && city.length()>0) {
+			this.city = city;
+		}
+	}
+
+}

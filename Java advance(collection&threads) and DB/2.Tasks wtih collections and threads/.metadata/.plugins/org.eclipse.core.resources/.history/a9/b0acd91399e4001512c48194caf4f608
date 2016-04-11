@@ -1,0 +1,87 @@
+package PostAlone;
+
+public class Parcel extends MailObject {
+
+	private static final int TIME_FOR_PARCEL_SENDING = 2000;
+	private static final double COEF_FOR_DIFFERENT_PARCEL = 1.5;
+	private static final int TAX_FOR_PARCEL_SENDING = 2;
+	private int lenght;
+	private int widht;
+	private int height;
+	private boolean isFragile;
+	
+	public Parcel(Citizen sender, Citizen receiver, int l, int w, int h, boolean isFragile) {
+		super(sender, receiver);
+		this.setLenght(l);
+		this.setHeight(h);
+		this.setWidht(w);
+		this.setFragile(isFragile);
+	}
+	
+	boolean isOversized(){
+		if(widht>60 || height>60 || lenght>60){
+			return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public double getTaxForSending() {
+		double tax = TAX_FOR_PARCEL_SENDING;
+		boolean isBig = this.isOversized();
+		if(isBig == true){
+			tax = TAX_FOR_PARCEL_SENDING * COEF_FOR_DIFFERENT_PARCEL;
+		}
+		if(this.isFragile == true){
+			tax = tax * COEF_FOR_DIFFERENT_PARCEL;
+		}
+		
+		return tax;
+	}
+
+	@Override
+	public int getTimeForSending() {
+		return TIME_FOR_PARCEL_SENDING;
+	}
+
+	public int getLenght() {
+		return lenght;
+	}
+
+	private void setLenght(int lenght) {
+		if(lenght>0){
+			this.lenght = lenght;
+		}
+	}
+
+	public int getWidht() {
+		return widht;
+	}
+
+	private void setWidht(int width) {
+		if(width>0){
+			this.widht = widht;
+		}
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	private void setHeight(int height) {
+		if(height>0){
+			this.height = height;
+		}
+	}
+
+	public boolean isFragile() {
+		return isFragile;
+	}
+
+	public void setFragile(boolean isFragile) {
+		this.isFragile = isFragile;
+	}
+
+
+
+}

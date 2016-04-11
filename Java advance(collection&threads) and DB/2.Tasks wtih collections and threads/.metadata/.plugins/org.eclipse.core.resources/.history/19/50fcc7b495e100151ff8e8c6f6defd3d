@@ -1,0 +1,19 @@
+package TestLib3;
+
+public class Client implements Runnable {
+
+	private Library library;
+	
+	public Client() {
+		this.library = library; 
+	}
+	
+	@Override
+	public void run() {
+		 for (int i = 1; i < 10; i++) {
+			
+		}
+		
+	}
+
+}

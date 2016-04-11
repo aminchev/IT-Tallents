@@ -1,0 +1,20 @@
+package PostAlone;
+
+public class Letter extends MailObject {
+
+	public Letter(Citizen sender, Citizen receiver) {
+		super(sender, receiver);
+		
+	}
+
+	@Override
+	public double getTaxForSend() {
+		return 0.5;
+	}
+
+	@Override
+	public int getTimeForDeliver() {
+		return 1500;
+	}
+
+}

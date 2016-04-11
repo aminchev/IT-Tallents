@@ -1,0 +1,24 @@
+package Store2;
+
+public class Client implements Runnable{
+
+	private Shop shop;
+	public Client(Shop shop) {
+		this.shop = shop;
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			int quantiti = (int)(Math.random()*3)+1;
+			quantiti = (int) Math.floor(quantiti);
+			String[] types = { "Fruit", "Vegetables", "Meat" };
+			String[] productsInArray = { "Banana", "Orange", "Apple", "Potato", "Tomato", "Cucumber", "Pork", "Beef",
+					"Chicken" };
+			
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,25 @@
+package Test2;
+
+public class Textbook extends ReadingMaterial {
+
+	private String author;
+	private String tema;
+	
+	public Textbook(String name, String author, String tema) {
+		super(name);
+		
+	}
+
+	public void setAuthor(String author) {
+		if(author!=null && author.length()>0){
+			this.author = author;
+		}
+	}
+
+	public void setTema(String tema) {
+		if(tema!=null && tema.length()>0){
+			this.tema = tema;
+		}
+	}
+
+}

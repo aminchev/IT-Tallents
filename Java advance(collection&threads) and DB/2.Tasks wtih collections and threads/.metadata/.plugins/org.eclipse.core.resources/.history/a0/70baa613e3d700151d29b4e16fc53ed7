@@ -1,0 +1,98 @@
+package MusicShop;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class Shop {
+	private int moneyInCash;
+	//Key - Instrument, Value - count of instruments is shop
+	private Map<Instrument, Integer> instruments;
+	private Map<Instrument, Integer> listOfSoldInstuments;
+	
+	public Shop(int moneyInCash) {
+		this.setMoneyInCash(moneyInCash);
+		this.instruments = new TreeMap<Instrument, Integer>(new InstrumentComparator());
+		this.listOfSoldInstuments = new HashMap<Instrument, Integer>();
+	}
+
+	void sellInstrument(String name, int count) {
+		if (name != null && !name.equals("") && count > 0) {
+			for (Instrument instrument : instruments.keySet()) {
+				if (instrument.getName().equals(name)) {
+					if (instruments.get(instrument) >= count) {
+						instruments.put(instrument, instruments.get(instrument) - count);
+						this.setMoneyInCash(this.getMoneyInCash() + instrument.getPrice() * count);
+						System.out.println("Prodadohme " + count + " " + name);
+						return;
+					}
+					else{
+						System.out.println("Nqma tolkova broiki ot tozi instrument");
+						return;
+					}
+				}
+			}
+			System.out.println("Nqma takuv instrument!");
+		}
+		else{
+			System.out.println("Podavate mi greshni parametri");
+		}
+
+	}
+
+	void addNewInstrumentsInTheShop(String type, String name, int price, int count) {
+		if (name != null && !name.equals("") && type!=null && !type.equals("") && price>0 && count > 0) {
+			for (Instrument instrument : instruments.keySet()) {
+				if (instrument.getName().equals(name)) {
+					instruments.put(instrument, instruments.get(instrument) + count);
+					return;
+				}
+			}
+			Instrument newInstrument = new Instrument(type, name, price);
+			instruments.put(newInstrument, count);
+		}
+	}
+	
+	TreeSet<Instrument> catalogOfSortedInstrumentsByCriteria(String criteria){
+		if(criteria != null &&!criteria.equals("")){
+			TreeSet<Instrument> result = new TreeSet<Instrument>();
+			if(criteria.equals("type")){
+				 result = new TreeSet<Instrument>(new InstrumentComparatorByType());
+			}
+			else if(criteria.equals("priceAsc")){
+				result = new TreeSet<Instrument>(new InstrumentComparatorByPriceAsc());
+			}
+			else if(criteria.equals("priceDesc")){
+				result = new TreeSet<Instrument>(new InstrumentComparatorByPriceDesc());
+			}
+			else{
+				result = new TreeSet<Instrument>(new InstrumentComparator());
+			}
+			
+			for(Instrument instrument:instruments.keySet()){
+				result.add(instrument);
+			}
+			return result;
+		}
+		return null;
+	}
+	
+	void  addCountOfInstrumentInList(String type, String name, int countOfSoldInstruments){
+		if(name!=null && !name.equals("") && countOfSoldInstruments>0){
+			
+		}
+	}
+	
+
+	public int getMoneyInCash() {
+		return moneyInCash;
+	}
+
+	public void setMoneyInCash(int moneyInCash) {
+		if (moneyInCash > 0) {
+			this.moneyInCash = moneyInCash;
+		}
+	}
+}

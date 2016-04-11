@@ -1,0 +1,18 @@
+package TestLib3;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Library {
+	
+	private Map<TypeOfReadingMaterial, Map<String, List<ReadingMaterial>>> materials;
+	
+	public Library() {
+		materials = new HashMap();
+		materials.put(TypeOfReadingMaterial.BOOK, new TreeMap<String, List<ReadingMaterial>>());
+		materials.put(TypeOfReadingMaterial.MAGAZINE, new TreeMap<>());
+		materials.put(TypeOfReadingMaterial.TEXTBOOK, new TreeMap<>());
+	}
+}

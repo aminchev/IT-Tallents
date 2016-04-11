@@ -1,0 +1,61 @@
+package Test2;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class Biblioteka {
+	//Key:String - вид на четивото, Value:Set - четивата от този вид 
+	private Map<String, TreeSet<ReadingMaterial>> readingMaterials;
+	
+	public Biblioteka() {
+		this.readingMaterials = new TreeMap<String, TreeSet<ReadingMaterial>>();
+	}
+	
+	void addReadingMaterial(ReadingMaterial material){
+		if(material != null){
+			if(material instanceof Book){
+				if(!readingMaterials.containsKey("Books")){
+					readingMaterials.put("Books", new TreeSet<ReadingMaterial>(new BookComparator() ));
+				}
+				readingMaterials.get("Books").add(material);
+			}
+			else if(material instanceof Magazine){
+				if(!readingMaterials.containsKey("Magazines")){
+					readingMaterials.put("Magazines", new TreeSet<ReadingMaterial>(new MagazineComparator()));
+				}
+				readingMaterials.get("Magazines").add(material);
+			}
+			else if(material instanceof Textbook){
+				if(!readingMaterials.containsKey("Textbooks")){
+					readingMaterials.put("Textbooks", new TreeSet<ReadingMaterial>(new TextbookComparator()));
+				}
+				readingMaterials.get("Textbooks").add(material);
+			}
+		}
+	}
+	
+	void showReadingMaterialsAccordingType(String material){
+		switch(material){
+		case "Magazines":
+			TreeSet<ReadingMaterial> magazines = readingMaterials.get("Magazines");
+			for(ReadingMaterial magazin:magazines){
+				System.out.println(((Magazine)magazin).toString());
+			}
+		break;
+		case "Textbooks":
+			TreeSet<ReadingMaterial> textbooks = readingMaterials.get("Textbooks");
+			for(ReadingMaterial textbook:textbooks){
+				System.out.println(textbook.toString());
+			}
+		break;
+		default:
+			TreeSet<ReadingMaterial> books = readingMaterials.get("Books");
+			for(ReadingMaterial book:books){
+				System.out.println(book.toString());
+			}
+					
+		}
+	}
+}

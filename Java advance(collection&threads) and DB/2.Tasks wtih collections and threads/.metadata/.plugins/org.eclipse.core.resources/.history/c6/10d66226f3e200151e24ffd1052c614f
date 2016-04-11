@@ -1,0 +1,34 @@
+package TestLib4Again;
+
+import java.time.LocalDateTime;
+
+public class Megazine extends ReadingMaterial {
+
+	private int numberOfMagazine;
+	private LocalDateTime date;
+	
+	public Megazine(String name, String izdatelstvo, int numberOfMagazine, LocalDateTime date) {
+		super(name, izdatelstvo);
+		this.setNumberOfMagazine(numberOfMagazine);
+		this.setDate(date);
+	}
+
+	public int getNumberOfMagazine() {
+		return numberOfMagazine;
+	}
+
+	private void setNumberOfMagazine(int numberOfMagazine) {
+		if(numberOfMagazine>0){
+			this.numberOfMagazine = numberOfMagazine;
+		}
+	}
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	private void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
+}

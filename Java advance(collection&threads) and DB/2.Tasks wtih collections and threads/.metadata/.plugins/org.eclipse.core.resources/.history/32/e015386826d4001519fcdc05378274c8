@@ -1,0 +1,60 @@
+package Store2;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Store {
+	private static final int MIN_CUONTITY_OF_PRODUCTS = 8;
+	private Map<Product, Integer> products;
+	private Provider provider;
+
+	public Store(Provider provider) {
+		this.provider = provider;
+		this.products = new HashMap<Product, Integer>();
+		for (Product product : products.keySet()) {
+			String[] types = { "Fruit", "Vegetables", "Meat" };
+			String[] productsInArray = { "Banana", "Orange", "Apple", "Potato", "Tomato", "Cucumber", "Pork", "Beef",
+					"Chicken" };
+			int helper = 0;
+			for (int type = 0; type < types.length; type++) {
+				int counter = 0;
+				for (int prod = 0 + helper; prod < productsInArray.length; prod++) {
+					products.put(new Product(types[type], productsInArray[prod]), 15);
+					counter++;
+					if (counter == 3) {
+						helper = helper + 3;
+						break;
+					}
+				}
+			}
+		}
+	}
+
+	void checkProducts() {
+		for (Product product : products.keySet()) {
+			if (products.get(product) < MIN_CUONTITY_OF_PRODUCTS) {
+				synchronized (products) {
+					products.put(product, products.get(product) + 25);
+				}
+
+			}
+		}
+
+	}
+
+	boolean getProductFromStore(String name){
+		if(name != null && name.length()>0){
+			for(Product product:products.keySet()){
+				Product curProduct = product;
+				if(curProduct.getName().equals(name)){
+					if(products.get(product)>5){
+						products.put(product, products.get(product)-5);
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+}

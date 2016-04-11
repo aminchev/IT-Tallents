@@ -1,0 +1,23 @@
+package PostWithVideo;
+
+public class Postman extends Citizen {
+
+	private int staj;
+	
+	public Postman(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+		
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			if(this.getPostOffice().getNumberOfMailObjects()<50){
+				synchronized (getPostOffice()) {
+					
+				}
+			}
+		}
+	}
+
+}

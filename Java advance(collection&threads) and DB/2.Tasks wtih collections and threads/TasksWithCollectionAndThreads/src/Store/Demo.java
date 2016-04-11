@@ -1,0 +1,38 @@
+package Store;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.HashSet;
+import java.util.List;
+
+public class Demo {
+	
+	public static void main(String[] args) {
+		
+		Set<String> set1 = new TreeSet<String>(new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.length() - o2.length();
+			}
+		});
+		
+		Set<String> set = new TreeSet<String>((s1, s2) -> (s1.length() - s2.length()));	
+		
+		List<String> list = new ArrayList<String>();
+		list.add("asdgadg");
+		list.add("fgh");
+		list.add("kstjastjsrt");
+		
+		Collections.sort(list, (String s1, String s2) -> s1.length() - s2.length());
+		
+		list.forEach(s -> System.out.println(s));
+		for(String s:list){
+			System.out.println();
+		}
+		
+	}
+
+}

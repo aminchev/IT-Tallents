@@ -1,0 +1,230 @@
+package MusicShop;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+import java.util.concurrent.ArrayBlockingQueue;
+
+import javax.activation.CommandInfo;
+
+public class Shop {
+	private int moneyInCash;
+	private InstrumntDistributor distributor;
+	//Key - Instrument, Value - count of instruments is shop
+	private Map<Instrument, Integer> instruments;
+	//Key - Instrument, Value - count of sold instruments
+	private Map<Instrument, Integer> listOfSoldInstuments;
+	
+	
+	public Shop(int moneyInCash) {
+		this.setMoneyInCash(moneyInCash);
+		this.instruments = new TreeMap<Instrument, Integer>(new InstrumentComparator());
+		this.listOfSoldInstuments = new TreeMap<Instrument, Integer>(new InstrumentComparator());
+	}
+
+	void sellInstrument(String name, int count) {
+		if (name != null && !name.equals("") && count > 0) {
+			for (Instrument instrument : instruments.keySet()) {
+				if (instrument.getName().equals(name)) {
+					if (instruments.get(instrument) >= count) {
+						instruments.put(instrument, instruments.get(instrument) - count);
+						this.setMoneyInCash(this.getMoneyInCash() + instrument.getPrice() * count);
+						System.out.println("Prodadohme " + count + " " + name);
+						if(listOfSoldInstuments.containsKey(instrument)){
+							listOfSoldInstuments.put(instrument, listOfSoldInstuments.get(instrument)+count);
+						}
+						else{
+							listOfSoldInstuments.put(instrument, count);
+						}
+						
+						return;
+					}
+					else{
+						System.out.println("Nqma tolkova broiki ot tozi instrument");
+						return;
+					}
+				}
+			}
+			System.out.println("Nqma takuv instrument!");
+		}
+		else{
+			System.out.println("Podavate mi greshni parametri");
+		}
+
+	}
+
+	void addNewInstrumentsInTheShop(String type, String name, int price, int count) {
+		if (name != null && !name.equals("") && type!=null && !type.equals("") && price>0 && count > 0) {
+			for (Instrument instrument : instruments.keySet()) {
+				if (instrument.getName().equals(name)) {
+					instruments.put(instrument, instruments.get(instrument) + count);
+					return;
+				}
+			}
+			Instrument newInstrument = new Instrument(type, name, price);
+			instruments.put(newInstrument, count);
+		}
+	}
+	
+	TreeSet<Instrument> catalogOfSortedInstrumentsByCriteria(String criteria){
+		if(criteria != null &&!criteria.equals("")){
+			TreeSet<Instrument> result = new TreeSet<Instrument>();
+			if(criteria.equals("type")){
+				 result = new TreeSet<Instrument>(new InstrumentComparatorByType());
+			}
+			else if(criteria.equals("priceAsc")){
+				result = new TreeSet<Instrument>(new InstrumentComparatorByPriceAsc());
+			}
+			else if(criteria.equals("priceDesc")){
+				result = new TreeSet<Instrument>(new InstrumentComparatorByPriceDesc());
+			}
+			else{
+				result = new TreeSet<Instrument>(new InstrumentComparator());
+			}
+			
+			for(Instrument instrument:instruments.keySet()){
+				result.add(instrument);
+			}
+			return result;
+		}
+		return null;
+	}
+	
+	void spravkaForShopWork(){
+		//Сортиране на продадените инстументи по брой продажби в нарастваш ред
+		//Използва се двойка ключ-стойност и според стойността се сортират в нарастващ вид
+		//Съхраняват се в ArrayList.
+		Set<Entry<Instrument, Integer>> set = this.listOfSoldInstuments.entrySet();
+		List<Entry<Instrument, Integer>> list = new ArrayList<Entry<Instrument, Integer>>(set);
+		Collections.sort(list, new Comparator<Entry<Instrument, Integer>>() {
+
+			@Override
+			public int compare(Entry<Instrument, Integer> o1, Entry<Instrument, Integer> o2) {
+				return o1.getValue().compareTo(o2.getValue());
+			}
+		});
+		
+		for(Entry<Instrument, Integer> entry:list){
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
+		
+		System.out.println("Sum in shop case from sales is " + this.getMoneyInCash());
+		String bestSellingInstrument = list.get(list.size()-1).getKey().getName();
+		int countOfBestSellingInstrument = list.get(list.size()-1).getValue();
+		System.out.println("Best sellings:" + bestSellingInstrument + ":" + countOfBestSellingInstrument);
+		String worstSellingInstrument = list.get(0).getKey().getName();
+		int countOfWorstSellingInstrument = list.get(0).getValue();
+		System.out.println("Worst sellings:" + worstSellingInstrument+ ":" + countOfWorstSellingInstrument);
+		
+		this.typeOfInstumentsWithBestEarnedMoney();
+		System.out.println();
+		this.typeOfBestInstuments();
+	}
+	
+	void typeOfInstumentsWithBestEarnedMoney(){
+		int moneyStrunni = 0;
+		int moneyKlavish = 0;
+		int moneyUdarni = 0;
+		int moneyDuhovi = 0;
+		int moneyElectro = 0;
+		
+		for(Instrument instrumet:listOfSoldInstuments.keySet()){
+			String type = instrumet.getType();
+			switch(type){
+			case "Strunen":
+				moneyStrunni = moneyStrunni+instrumet.getPrice()*listOfSoldInstuments.get(instrumet);
+				break;
+			case "Klavishen":
+				moneyKlavish = moneyKlavish+instrumet.getPrice()*listOfSoldInstuments.get(instrumet);
+				break;
+			case "Udaren":
+				moneyUdarni = moneyUdarni+instrumet.getPrice()*listOfSoldInstuments.get(instrumet);
+				break;
+			case "Duhov":
+				moneyDuhovi = moneyDuhovi+instrumet.getPrice()*listOfSoldInstuments.get(instrumet);
+				break;
+			case "Electro":
+				moneyElectro = moneyElectro+instrumet.getPrice()*listOfSoldInstuments.get(instrumet);
+				break;
+			default:
+				System.out.println("No such instrument!");
+				break;
+			}
+		}
+		System.out.println("Money from strunni:" + moneyStrunni);
+		System.out.println("Money from klavishni:" +moneyKlavish);
+		System.out.println("Money from udarni:" + moneyUdarni);
+		System.out.println("Money from duhovi:" + moneyDuhovi);
+		System.out.println("Money form electro:" + moneyElectro);
+		
+	}
+	
+	void typeOfBestInstuments(){
+		String bestType = "";
+		int moneyFromBestType = 0;
+		HashMap<String, Integer> soldInstuments = new HashMap<String, Integer>();
+		for(Instrument instrument:listOfSoldInstuments.keySet()){
+			String curInstrumentType = instrument.getType();
+			if(soldInstuments.containsKey(curInstrumentType)){
+				soldInstuments.put(curInstrumentType, soldInstuments.get(curInstrumentType)+ 
+									instrument.getPrice()*listOfSoldInstuments.get(instrument));
+			}
+			else{
+				soldInstuments.put(curInstrumentType, instrument.getPrice()*listOfSoldInstuments.get(instrument));
+			}
+		}
+		
+		for(String type: soldInstuments.keySet()){
+			if(soldInstuments.get(type)>moneyFromBestType){
+				bestType = type;
+				moneyFromBestType = soldInstuments.get(type);
+			}
+		}
+		System.out.println("Best sold type:"+bestType+ "-" + "Earn money from this type:" +moneyFromBestType);
+		
+	}
+	
+//	void makeRequestForInstrument(String instrumentName){
+//		if(instrumentName!=null && instrumentName.length()>0 ){
+//			TreeMap<String, Integer> offeredInstruments = this.getDistributor().offeredInstruments();
+//			for(String instument: offeredInstruments.keySet()){
+//				if(instument.equals(instrumentName)){
+//					System.out.println("This instrument can be delivered after" + 
+//											offeredInstruments.get(instument) + " days!");
+//					return;
+//				}
+//			}
+//			System.out.println("Distributor do not offer such instrument!");
+//		}
+//	}
+	
+
+	public int getMoneyInCash() {
+		return moneyInCash;
+	}
+
+	public void setMoneyInCash(int moneyInCash) {
+		if (moneyInCash > 0) {
+			this.moneyInCash = moneyInCash;
+		}
+	}
+
+	public InstrumntDistributor getDistributor() {
+		return distributor;
+	}
+
+	public void setDistributor(InstrumntDistributor distributor) {
+		if(distributor != null){
+			this.distributor = distributor;
+		}
+	}
+}

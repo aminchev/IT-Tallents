@@ -1,0 +1,13 @@
+package Test;
+
+import java.util.Comparator;
+
+public class SpisanieKomparator implements Comparator<Spisanie> {
+
+	@Override
+	public int compare(Spisanie o1, Spisanie o2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

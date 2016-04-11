@@ -1,0 +1,10 @@
+package ExamTaskHome;
+
+public class TransporterEmployee extends Person {
+
+	public TransporterEmployee(String name, String phoneNumber, String privateNumber, Address address) {
+		super(name, phoneNumber, privateNumber, address);
+		
+	}
+
+}

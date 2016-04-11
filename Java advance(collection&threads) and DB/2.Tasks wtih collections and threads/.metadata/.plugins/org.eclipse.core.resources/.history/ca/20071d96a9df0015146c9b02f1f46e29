@@ -1,0 +1,13 @@
+package Test2;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		Biblioteka biblioteka = new Biblioteka();
+		
+		ReadingMaterial book1 = new Book("Pod igoto", "Ivan Vazov", "Istoricheska");
+		ReadingMaterial book2 = new Book("Malkiq princ", "", genre)
+
+	}
+
+}

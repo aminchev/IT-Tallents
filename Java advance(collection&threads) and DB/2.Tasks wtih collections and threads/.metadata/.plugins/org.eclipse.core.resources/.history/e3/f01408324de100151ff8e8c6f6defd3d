@@ -1,0 +1,17 @@
+package TestLib3;
+
+import java.time.LocalDateTime;
+
+public class Book extends ReadingMaterial {
+
+	private String author;
+	private LocalDateTime date;
+	
+	
+	public Book(LocalDateTime date, String author, String name, String publisher) {
+		super(name, publisher);
+		this.author = author;
+		this.date = date;	
+	}
+
+}

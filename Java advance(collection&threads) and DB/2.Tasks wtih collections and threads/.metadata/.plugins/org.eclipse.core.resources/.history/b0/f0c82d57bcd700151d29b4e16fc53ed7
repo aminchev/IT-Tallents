@@ -1,0 +1,25 @@
+package MusicShop;
+
+public class DemoInstruments {
+
+	public static void main(String[] args) {
+	
+		Shop shop = new Shop(1000);
+		Instrument kitara = new Instrument("Strunen", "Kitara", 200);
+		Instrument kitara1 = new Instrument("Strunen", "Kitara", 200);
+		Instrument kitara2 = new Instrument("Strunen", "Kitara", 200);
+		Instrument kitara3 = new Instrument("Strunen", "Kitara", 200);
+		Instrument kitara4 = new Instrument("Strunen", "Kitara", 200);
+		
+		Instrument piano = new Instrument("Klavishen", "Piano", 1000);
+		Instrument piano1 = new Instrument("Klavishen", "Piano", 1000);
+		Instrument piano2 = new Instrument("Klavishen", "Piano", 1000);
+		Instrument piano3 = new Instrument("Klavishen", "Piano", 1000);
+		Instrument piano4 = new Instrument("Klavishen", "Piano", 1000);
+		
+		
+		
+
+	}
+
+}

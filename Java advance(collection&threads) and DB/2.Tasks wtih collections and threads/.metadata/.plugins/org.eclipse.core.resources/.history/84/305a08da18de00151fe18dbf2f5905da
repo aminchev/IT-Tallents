@@ -1,0 +1,29 @@
+package Test;
+
+import java.util.Comparator;
+
+public class ChetivoComparator implements Comparator<Chetivo> {
+
+	@Override
+	public int compare(Chetivo chetivo1, Chetivo chetivo2) {
+		if(chetivo1 instanceof Book){
+			if(((Book) chetivo2).getYearOfPublishig() - ((Book) chetivo1).getYearOfPublishig() == 0){
+				return ((Book) chetivo2).getMonthOfPublishing() - ((Book) chetivo1).getMonthOfPublishing();
+			}
+			return ((Book) chetivo2).getYearOfPublishig() - ((Book) chetivo1).getYearOfPublishig();
+		}
+		if(chetivo1 instanceof Spisanie){
+			if(chetivo1.getName().compareTo(chetivo2.getName())==0){
+				return ((Spisanie) chetivo1).getNumber() - ((Spisanie) chetivo2).getNumber();
+			}
+			return chetivo1.getName().compareTo(chetivo2.getName());
+		}
+		if(chetivo1 instanceof Uchebnik){
+			if(chetivo1.getName().compareTo(chetivo2.getName())==0){
+				return ((Uchebnik) chetivo1).getAutor().compareTo(((Uchebnik) chetivo2).getAutor());
+			}
+			return chetivo1.getName().compareTo(chetivo2.getName());
+		}
+	}
+
+}

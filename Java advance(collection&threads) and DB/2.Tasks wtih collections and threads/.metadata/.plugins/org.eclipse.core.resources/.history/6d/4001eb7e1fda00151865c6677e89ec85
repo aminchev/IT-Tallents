@@ -1,0 +1,28 @@
+package MusicShop;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class InstrumntDistributor {
+	private Shop shop;
+	//String-instrument name, Integer - time for delivery
+	private Map<String, Integer> instumentsPerf;
+	
+	
+	public InstrumntDistributor() {
+		this.setShop(shop);
+		this.instumentsPerf = new TreeMap<String, Integer>();
+	}
+	
+	public Shop getShop() {
+		return shop;
+		
+	}
+
+	public void setShop(Shop shop) {
+		if(shop!= null){
+			this.shop = shop;
+		}
+	}
+	
+}

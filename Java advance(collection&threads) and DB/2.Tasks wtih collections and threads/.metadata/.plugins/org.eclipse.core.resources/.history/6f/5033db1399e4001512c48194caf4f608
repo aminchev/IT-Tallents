@@ -1,0 +1,42 @@
+package PostAlone;
+
+import java.util.List;
+
+import javax.swing.plaf.synth.SynthButtonUI;
+
+public class Colleactor extends PostMan  {
+
+	public Colleactor(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			while(getPostOffice().getCountOfAllMailObjects()>50){
+				synchronized (getPostOffice()) {
+					System.out.println(Thread.currentThread().getName() + " There are a lot of mail objects in the post."
+							+ "I will wait!");
+					try {
+						getPostOffice().wait();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			System.out.println("There is free space. I will collect some letters ");
+			
+			for(MailBox box:getMailboxes()){
+				List<Letter> allLetterFromMailBox = box.getAllLetters();
+				getPostOffice().addMailObject(allLetterFromMailBox);
+			}
+			
+			synchronized (getPostOffice()) {
+				getAddress().notifyAll();
+			}
+		}
+	}
+
+}

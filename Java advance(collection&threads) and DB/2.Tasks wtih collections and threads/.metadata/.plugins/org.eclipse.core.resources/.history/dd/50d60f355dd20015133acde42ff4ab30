@@ -1,0 +1,43 @@
+package Store;
+
+public class Product {
+	private String name;
+	private int count;
+	private String type;
+	
+	public Product(String name, int count, String type) {
+		this.setName(name);
+		this.setCount(count);
+		this.setType(type);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	private void setName(String name) {
+		if(name != null && name.length()>0){
+			this.name = name;
+		}
+	}
+
+	public int getCount() {
+		return this.count;
+	}
+
+	public void setCount(int count) {
+		if(count>0){
+			this.count = count;
+		}
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	private void setType(String type) {
+		if(type != null && type.length()>0){
+			this.type = type;
+		}
+	}
+}

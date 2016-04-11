@@ -1,0 +1,10 @@
+1456841261431	Delete element
+1456858834223	Delete element
+1456867534210	Delete element
+1456995717666	Encapsulate field 'dateReturn'
+1456996121817	Encapsulate field 'isTeaken'
+1457012573877	Rename method 'setTaken'
+1457092656643	Extract constant 'NORMAL_PRICE'
+1457093330466	Extract method 'generateMailObject'
+1457097360061	Extract method 'generateRanodm'
+1457187435766	Delete element

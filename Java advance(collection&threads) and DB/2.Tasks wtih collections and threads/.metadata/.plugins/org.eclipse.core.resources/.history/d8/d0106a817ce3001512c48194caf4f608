@@ -1,0 +1,27 @@
+package TestLib4Again;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class LibraryMan {
+	
+	private Map<ReadingMaterial, Double> takenMaterials;
+	
+	public LibraryMan() {
+		takenMaterials = new HashMap<ReadingMaterial, Double>();
+	}
+	
+	void addTakenMaterialToWatch(ReadingMaterial material) throws LibraryException{
+		if(material != null){
+			takenMaterials.put(material, material.getPrice());
+		}
+	}
+	
+	void removeMaterialToWatch(ReadingMaterial material){
+		if(material!=null){
+			takenMaterials.remove(material);
+		}
+	}
+}

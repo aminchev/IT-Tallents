@@ -1,0 +1,30 @@
+package TestLib3;
+
+import java.util.List;
+
+public class Client implements Runnable {
+
+	private Library library;
+	
+	public Client() {
+		this.library = library; 
+	}
+	
+	@Override
+	public void run() {
+		 for (int i = 1; i < 10; i++) {
+			List<ReadingMaterial> books = library.catalogOfBooks();
+			try {
+				library.getReadingMaterial(books.get((int) (Math.random()*books.size())));
+				Thread.sleep((long) (Math.random()*5000));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+	}
+
+}

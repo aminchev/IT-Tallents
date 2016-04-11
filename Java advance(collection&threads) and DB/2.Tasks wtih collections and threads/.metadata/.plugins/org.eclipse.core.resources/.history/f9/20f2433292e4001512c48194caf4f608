@@ -1,0 +1,42 @@
+package PostAlone;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class PostOffice {
+	private List<MailObject> repository;
+	private Map<LocalDate, List<MailObject>> archive;
+	
+	public PostOffice() {
+		this.repository = new ArrayList<MailObject>();
+		this.archive = new TreeMap<LocalDate, List<MailObject>>();
+		
+	}
+	
+	void addMailObject(List<MailObject> mailObjects){
+		if(mailObjects!=null){
+			synchronized (repository) {
+				for(MailObject material:mailObjects){
+					repository.add(material);
+				}
+			}
+			synchronized (archive) {
+			if(!archive.containsKey(LocalDate.now())){
+					archive.put(LocalDate.now(), new LinkedList<MailObject>());
+				}
+				archive.get(LocalDate.now()).addAll(mailObjects);
+			}
+		}
+	}
+	
+	void addMailObject(MailObject mailObject){
+		this.addMailObject(Arrays.asList(mailObject));
+	}
+}

@@ -1,0 +1,63 @@
+package MusicShop;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Shop {
+	private int moneyInCash;
+	private Map<Instrument, Integer> instruments;
+
+	public Shop(int moneyInCash) {
+		this.setMoneyInCash(moneyInCash);
+		this.instruments = new TreeMap<Instrument, Integer>(new InstrumentComparator());
+
+	}
+
+	void sellInstrument(String name, int count) {
+
+		if (name != null && !name.equals("") && count > 0) {
+			for (Instrument instrument : instruments.keySet()) {
+				if (instrument.getName().equals(name)) {
+					if (instruments.get(instrument) >= count) {
+						instruments.put(instrument, instruments.get(instrument) - count);
+						this.setMoneyInCash(this.getMoneyInCash() + instrument.getPrice() * count);
+						System.out.println("Prodadohme " + count + " " + name);
+						return;
+					}
+					else{
+						System.out.println("Nqma tolkova broiki ot tozi instrument");
+						return;
+					}
+				}
+			}
+			System.out.println("Nqma takuv instrument!");
+		}
+		else{
+			System.out.println("Podavate mi greshni parametri");
+		}
+
+	}
+
+	void addNewInstrumentsInTheShop(String type, String name, int price, int count) {
+		if (name != null && !name.equals("") && count > 0) {
+			for (Instrument instrument : instruments.keySet()) {
+				if (instrument.getName().equals(name)) {
+					instruments.put(instrument, instruments.get(instrument) + count);
+					return;
+				}
+			}
+			Instrument newInstrument = new Instrument(type, name, price);
+			instruments.put(newInstrument, count);
+		}
+	}
+
+	public int getMoneyInCash() {
+		return moneyInCash;
+	}
+
+	public void setMoneyInCash(int moneyInCash) {
+		if (moneyInCash > 0) {
+			this.moneyInCash = moneyInCash;
+		}
+	}
+}

@@ -1,0 +1,40 @@
+package PostWithVideo;
+
+import java.util.List;
+
+public class Collector extends Postman {
+
+	public Collector(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+		
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			while(this.getPostOffice().getNumberOfMailObjects()>=50){
+				synchronized (this.getPostOffice()) {
+					try {
+						System.out.println("Ima mnogo pisma v poshtata, she izchakam da namaleqt!");
+						this.getPostOffice().wait();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			System.out.println("She mina da subera pisma ot mailbox-ovete i da gi donesa v poshtata!");
+			for(MailBox mailbox:this.getMailboxes()){
+				List<Letter> list = mailbox.getAllLetters();
+				this.getPostOffice().addMailObject(list);
+				System.out.println("Sega she dobavq subranite pisma!");
+				
+				synchronized (this.getPostOffice()) {
+					this.getPostOffice().notifyAll();
+				}
+				
+			}
+		}
+	}
+	
+}

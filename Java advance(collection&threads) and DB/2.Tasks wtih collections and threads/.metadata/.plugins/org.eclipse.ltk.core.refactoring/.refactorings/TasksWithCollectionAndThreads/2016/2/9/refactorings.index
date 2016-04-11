@@ -1,0 +1,4 @@
+1456224649667	Encapsulate field 'shop'
+1456227313744	Encapsulate field 'distributor'
+1456237592760	Extract constant 'COUNTITY_NEEDED_FOR_DELIVERY'
+1456238145568	Extract constant 'ADD_QUANTITY'

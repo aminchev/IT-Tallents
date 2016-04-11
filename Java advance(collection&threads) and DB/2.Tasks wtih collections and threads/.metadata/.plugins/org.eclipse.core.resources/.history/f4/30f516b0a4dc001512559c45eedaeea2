@@ -1,0 +1,27 @@
+package Test;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class Biblioteka {
+	//String-жанр 
+	private Map<String, Set<Book>> books;
+	//String - тема
+	private Map<String, Set<Uchebnik>> ucebnici;
+	//String - Категория
+	private Map<String, Map<String, Integer>> spisania;
+	
+	public Biblioteka() {
+		this.books = new TreeMap<String, Set<Book>>();
+		this.ucebnici = new TreeMap<String, Set<Uchebnik>>();
+		
+	}
+	
+	public SortedSet<Book> getAllBookFromBiblioteka(){
+		
+	}
+	
+}

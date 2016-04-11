@@ -1,0 +1,52 @@
+package Test;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class Biblioteka {
+	//String-жанр 
+	private Map<String, Set<Book>> books;
+	//String - тема
+	private Map<String, Set<Uchebnik>> ucebnici;
+	//String - Категория
+	private Map<String, Map<String, Integer>> spisania;
+	
+	public Biblioteka() {
+		this.books = new TreeMap<String, Set<Book>>();
+		this.ucebnici = new TreeMap<String, Set<Uchebnik>>();
+		
+	}
+	
+	public SortedSet<Book> getAllBookFromBiblioteka(){
+		TreeSet<Book> sortedBook = new TreeSet<>((book1, book2) ->{
+			if(book1.getYearOfPublishig() == book2.getYearOfPublishig()){
+				return book1.getMonthOfPublishing() - book2.getMonthOfPublishing();
+			}
+			return book1.getYearOfPublishig() - book2.getYearOfPublishig();
+		});
+		for(String janr: books.keySet()){
+			Set<Book> booksWithThisJanr = books.get(janr);
+			sortedBook.addAll(booksWithThisJanr);
+		}
+		return sortedBook;
+	}
+	
+	public SortedSet<Uchebnik> getAllUchebniciFromBibliote(){
+		TreeSet<Uchebnik> sortedUchebnici = new TreeSet<>((uch1,uch2) ->{
+			if(uch1.getName().compareTo(uch2.getName()) == 0){
+				return uch1.getAutor().compareTo(uch2.getAutor());
+			}
+			return uch1.getName().compareTo(uch2.getName());
+		});
+		
+		for(String tema: ucebnici.keySet()){
+			Set<Uchebnik> uchebniciFromThisTema = ucebnici.get(tema);
+			sortedUchebnici.addAll(uchebniciFromThisTema);
+		}
+		return sortedUchebnici;
+	}
+	
+}

@@ -1,0 +1,12 @@
+
+public class PingPong extends Thread {
+
+	public void run() {
+		System.out.println("ping ");
+		}
+		public static void main(String []args) {
+		Thread pingPong = new PingPong();
+		pingPong.run();
+		System.out.print("pong");
+		}	
+}

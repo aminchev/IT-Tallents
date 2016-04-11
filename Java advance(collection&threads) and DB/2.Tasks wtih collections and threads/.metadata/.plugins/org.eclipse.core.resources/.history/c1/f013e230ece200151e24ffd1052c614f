@@ -1,0 +1,12 @@
+package TestLib4Again;
+
+import java.util.Comparator;
+
+public class MagazineComparator implements Comparator<Magazine> {
+
+	@Override
+	public int compare(Magazine mag1, Magazine mag2) {
+		
+	}
+
+}

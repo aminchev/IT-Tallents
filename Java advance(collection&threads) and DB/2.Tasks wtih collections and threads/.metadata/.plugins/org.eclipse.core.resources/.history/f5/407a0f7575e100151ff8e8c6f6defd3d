@@ -1,0 +1,64 @@
+package TestLib3;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Library {
+
+	private Map<TypeOfReadingMaterial, Map<String, List<ReadingMaterial>>> materials;
+
+	public Library() {
+		materials = new HashMap();
+		materials.put(TypeOfReadingMaterial.BOOK, new HashMap<>());
+		materials.put(TypeOfReadingMaterial.MAGAZINE, new HashMap<>());
+		materials.put(TypeOfReadingMaterial.TEXTBOOK, new HashMap<>());
+
+		materials.get(TypeOfReadingMaterial.BOOK).put("Istoricheski",
+				Arrays.asList(new Book(LocalDateTime.of(1963, 11, 10, 3, 34), "Ivan Vazov", "Pod igoto", "Prosveta"),
+						new Book(LocalDateTime.now(), "Ekziuperi", "Malkiq princ", "Nov Svqt")));
+
+		materials.get(TypeOfReadingMaterial.MAGAZINE).put("Modni",
+				Arrays.asList(new Magazine(LocalDateTime.now(), 3, "Cosmos", "Anubis"),
+						new Magazine(LocalDateTime.now(), 5, "Blqsyk", "Bulvest 2000")));
+
+		materials.get(TypeOfReadingMaterial.TEXTBOOK).put("Matematika",
+				Arrays.asList(new Textbook("Ganio Hristev", "Algebra za 5 klas", "Anubis"),
+						new Textbook("Stamat Stoynov", "Integrali za 2-ri klas", "Prosveta")));
+	}
+
+
+	
+	public void getReadingMaterial(ReadingMaterial readingMaterial) throws LibraryException {
+		if (readingMaterial != null && readingMaterial.canBeTaken() && !readingMaterial.isTaken()) {
+			readingMaterial.takeIt(true);
+			
+		}
+		else{
+			throw new LibraryException("This material can not be taken");
+		}
+	}
+	
+	public void showCatalog(TypeOfReadingMaterial type){
+		Map<String, List<ReadingMaterial>> catalog = materials.get(type);
+		for(String category: catalog.keySet()){
+			System.out.println(category + ":");
+			List<ReadingMaterial> list = catalog.get(category);
+			if(type.equals(TypeOfReadingMaterial.BOOK)){
+				//как да ги сортирам тук, как да използвам компараторите???
+				//list.sort();....
+				//ако всеки клас(Bоок,Мagazine,Textbook, наследява Camparable какво променя това??)
+				
+				list.sort(list.get(0).getComparator());//това как работи
+			}
+			for(ReadingMaterial material: list){
+				System.out.println(material);
+			}
+		}
+	}
+}

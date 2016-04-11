@@ -1,0 +1,22 @@
+package MusicShop;
+
+public class Client {
+	private IShop shop;
+
+	public Client(IShop shop) {
+		this.setShop(shop);
+	}
+	
+	private void setShop(IShop shop) {
+		if(shop!= null){
+			this.shop = shop;
+		}
+	}
+	
+//	void orderInstrument(String name){
+//		if(name!= null && !name.equals("")){
+//			
+//		}
+//	}
+	
+}

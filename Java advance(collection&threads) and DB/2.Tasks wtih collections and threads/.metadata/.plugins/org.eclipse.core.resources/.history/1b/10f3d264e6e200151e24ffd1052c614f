@@ -1,0 +1,15 @@
+package TestLib4Again;
+
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Library {
+	private Map<String, Map<String, List<ReadingMaterial>>> readingMaterials;
+	
+	public Library() {
+		readingMaterials.put("Book", new TreeMap<String, List<ReadingMaterial>>());
+		readingMaterials.put("Magazine", new TreeMap<String, List<ReadingMaterial>>());
+		readingMaterials.put("Textbook", new TreeMap<String, List<ReadingMaterial>>());
+	}
+}

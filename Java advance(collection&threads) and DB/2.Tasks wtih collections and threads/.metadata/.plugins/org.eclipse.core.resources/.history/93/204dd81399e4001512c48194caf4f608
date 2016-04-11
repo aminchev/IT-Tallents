@@ -1,0 +1,25 @@
+package PostAlone;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class MailBox {
+	private List<Letter> letters;
+	public MailBox() {
+		letters = new ArrayList<Letter>();
+	}
+	
+	void addLetter(Letter letter){
+		if(letter != null){
+			letters.add(letter);
+		}
+	}
+	
+	List<Letter> getAllLetters(){
+		List<Letter> allLetters = new ArrayList<Letter>();
+		Collections.copy(allLetters, letters);
+		letters.clear();
+		return allLetters;
+	}
+}

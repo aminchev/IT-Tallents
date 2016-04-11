@@ -1,0 +1,15 @@
+package Test;
+
+import java.util.Comparator;
+
+public class SpisanieComparator implements Comparator<Spisanie> {
+
+	@Override
+	public int compare(Spisanie spisanie1, Spisanie spisanie2) {
+		if(spisanie1.getName().compareTo(spisanie2.getName())==0){
+			return spisanie1.getNumber() - spisanie2.getNumber();
+		}
+		return spisanie1.getName().compareTo(spisanie2.getName());
+	}
+
+}

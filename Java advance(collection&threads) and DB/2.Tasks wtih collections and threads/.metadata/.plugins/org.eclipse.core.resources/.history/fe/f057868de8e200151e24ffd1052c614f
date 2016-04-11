@@ -1,0 +1,27 @@
+package TestLib4Again;
+
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+import TestLib3.Magazine;
+import TestLib3.TypeOfReadingMaterial;
+
+public class Library {
+	private Map<String, Map<String, List<ReadingMaterial>>> readingMaterials;
+	
+	public Library() {
+		readingMaterials.put("Book", new TreeMap<String, List<ReadingMaterial>>());
+		readingMaterials.put("Magazine", new TreeMap<String, List<ReadingMaterial>>());
+		readingMaterials.put("Textbook", new TreeMap<String, List<ReadingMaterial>>());
+		
+		readingMaterials.get("Book").put("Istoricheski", 
+				Arrays.asList(new Book("Ivan Vazov", LocalDateTime.of(1988, 11, 21, 3, 4), "Pod igoto", "Prosveta"), 
+				new Book("Stefan Dichev", LocalDateTime.of(1977, 5, 12, 8, 9), "Putqt kum Sofiq", "Bulvast")));
+	
+		readingMaterials.
+		
+	}
+}

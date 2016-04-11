@@ -1,0 +1,50 @@
+package Test2;
+
+public class Book extends ReadingMaterial {
+	
+	private String author;
+	private int yearOfMade;
+	private int monthOfMade;
+	private String genre;
+	
+	
+	public Book(String name, String author, String genre) {
+		super(name);
+		
+	}
+
+
+	public int getYearOfMade() {
+		return yearOfMade;
+	}
+
+
+	public void setYearOfMade(int yearOfMade) {
+		if(yearOfMade>0){
+			this.yearOfMade = yearOfMade;
+		}
+	}
+
+
+	public int getMonthOfMade() {
+		return monthOfMade;
+	}
+
+
+	public void setMonthOfMade(int monthOfMade) {
+		if(monthOfMade>0){
+			this.monthOfMade = monthOfMade;
+		}
+	}
+
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+}

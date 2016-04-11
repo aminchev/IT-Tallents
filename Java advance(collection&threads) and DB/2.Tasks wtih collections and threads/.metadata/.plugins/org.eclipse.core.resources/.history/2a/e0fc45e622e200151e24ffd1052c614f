@@ -1,0 +1,52 @@
+package PostWithVideo;
+
+import java.util.List;
+
+public class Postman extends Citizen {
+
+	private int staj;
+	
+	public Postman(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+		
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			while(this.getPostOffice().getNumberOfMailObjects()<50){
+				synchronized (getPostOffice()) {
+					try {
+						System.out.println("Sche chakam da se suberat pisma!");
+						this.getPostOffice().wait();
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+						return;
+					}
+				}
+			}
+			System.out.println("Trugvam da razdavam pisma!");
+			int numberOfPostmens =  Thread.currentThread().getThreadGroup().activeCount();
+			int numbersOfMailToGet = this.getPostOffice().getNumberOfMailObjects()/numberOfPostmens;
+			try {
+				 
+			List<MailObject> mails =	this.getPostOffice().takeMails(numbersOfMailToGet);
+			for(MailObject m:mails){
+				try {
+					Thread.sleep((long) m.getTimeForDelivery());
+					System.out.println("Eto sega razdadoh tova " + m);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			
+			} catch (MailBoxException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

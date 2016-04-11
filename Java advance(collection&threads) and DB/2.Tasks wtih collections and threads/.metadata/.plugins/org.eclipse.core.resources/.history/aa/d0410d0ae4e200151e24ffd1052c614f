@@ -1,0 +1,15 @@
+package TestLib4Again;
+
+import java.time.LocalDateTime;
+
+public class Magazine extends ReadingMaterial {
+
+	private int numberOfMagazine;
+	private LocalDateTime date;
+	
+	public Magazine(String name, String izdatelstvo, int numberOfMagazine, LocalDateTime date) {
+		super(name, izdatelstvo);
+		
+	}
+
+}

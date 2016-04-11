@@ -1,0 +1,47 @@
+package PostAlone;
+
+import java.util.List;
+
+public class PostMen extends Citizen {
+
+	private int staj;
+	
+	public PostMen(String firstName, String lastName, String address, int staj) {
+		super(firstName, lastName, address);
+		this.staj = staj;
+		
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			if(getPostoffice().getCountOfMailObjectsInPost()<50){
+				System.out.println(Thread.currentThread().getName() + " There is not enough letters for wearing!");
+				synchronized (getPostoffice()) {
+					try {
+						getPostoffice().wait(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+			List<MailObject> objectsForWearing = getPostoffice().takeRandomCountOfMailObjectsForWearing();
+			for(MailObject mailObj:objectsForWearing){
+				try {
+					Thread.sleep(mailObj.getTimeForDeliver());
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				System.out.println("Dostavih " + mailObj);
+			}
+			
+			synchronized (getPostoffice()) {
+				getPostoffice().notifyAll();
+			}
+		}
+	}
+
+}

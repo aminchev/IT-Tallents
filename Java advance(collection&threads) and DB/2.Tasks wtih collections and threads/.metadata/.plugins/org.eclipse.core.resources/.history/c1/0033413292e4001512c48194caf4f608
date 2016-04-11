@@ -1,0 +1,29 @@
+package PostAlone;
+
+public class PostMan extends Citizen  implements Runnable{
+
+	private int staj;
+	
+	public PostMan(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+	}
+
+	public int getStaj() {
+		return staj;
+	}
+
+	public void setStaj(int staj) {
+		if(staj>0){
+			this.staj = staj;
+		}
+	}
+
+	@Override
+	public void run() {
+	
+		
+	}
+
+	
+
+}

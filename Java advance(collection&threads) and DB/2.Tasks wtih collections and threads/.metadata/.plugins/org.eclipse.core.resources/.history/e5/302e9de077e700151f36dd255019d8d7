@@ -1,0 +1,18 @@
+package ExamTaskHome;
+
+public abstract class Person {
+	private String name;
+	private String phoneNumber;
+	private String privateNumber;
+	private Address address;
+	boolean isFirma;
+	
+	public Person(String name, String phoneNumber, String privateNumber, Address address, boolean isFirma) {
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.privateNumber = privateNumber;
+		this.address = address;
+		this.isFirma = isFirma;
+	}
+	
+}

@@ -1,0 +1,59 @@
+package MusicShop;
+
+import java.util.TreeSet;
+
+public class DemoInstruments {
+
+	public static void main(String[] args) {
+	
+		InstrumntDistributor spasDistrib = new InstrumntDistributor();
+		Shop shop = new Shop(0);
+		
+		shop.addNewInstrumentsInTheShop("Strunen", "Kitara", 200, 4);
+		shop.addNewInstrumentsInTheShop("Klavishen", "Piano", 1200, 5);
+		shop.addNewInstrumentsInTheShop("Strunen", "Cigulka", 1000, 3);
+		shop.addNewInstrumentsInTheShop("Duhov", "Fleita", 300, 10);
+		shop.addNewInstrumentsInTheShop("Udaren", "Baraban", 100, 15);
+		shop.addNewInstrumentsInTheShop("Duhov", "Trompet", 250, 18);
+		
+		shop.sellInstrument("Kitara", 3);
+		shop.sellInstrument("Piano", 5);
+		shop.sellInstrument("Piano", 2);
+		shop.sellInstrument("gdf", 4);
+		shop.sellInstrument("Baraban", 9);
+		
+		
+		
+		TreeSet<Instrument> sortedInstrumentByType = shop.catalogOfSortedInstrumentsByCriteria("type");
+		for(Instrument instr:sortedInstrumentByType){
+			System.out.println(instr);
+		}
+
+		System.out.println();
+		TreeSet<Instrument> sortedInstumentsByPriceAsc = shop.catalogOfSortedInstrumentsByCriteria("priceAsc");
+		for(Instrument instr:sortedInstumentsByPriceAsc){
+			System.out.println(instr);
+		}
+		
+		System.out.println();
+		shop.spravkaForShopWork();
+		
+		
+		shop.setDistributor(spasDistrib);
+		spasDistrib.setShop(shop);
+		Client ivan = new Client(shop);
+		
+		spasDistrib.addInstrumentsForSale("Fleita", 10);
+		spasDistrib.addInstrumentsForSale("Akordeon", 20);
+		spasDistrib.addInstrumentsForSale("Tupan", 30);
+		spasDistrib.addInstrumentsForSale("Tuba", 8);
+		spasDistrib.addInstrumentsForSale("Daire", 2);
+		spasDistrib.addInstrumentsForSale("Trompet", 11);
+		spasDistrib.addInstrumentsForSale("Arfa", 40);
+		spasDistrib.addInstrumentsForSale("Trombon", 25);
+		
+		ivan.orderInstrument("Fagon");
+		
+	}
+
+}

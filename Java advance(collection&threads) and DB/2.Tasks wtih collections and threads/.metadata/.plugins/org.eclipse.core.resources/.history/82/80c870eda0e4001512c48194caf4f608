@@ -1,0 +1,13 @@
+package PostAlone;
+
+import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class PostOffice {
+	List<MailObject> repository = new LinkedList<MailObject>();
+	Map<LocalDate, List<MailObject>> archiv = new TreeMap<LocalDate, List<MailObject>>();
+	
+}

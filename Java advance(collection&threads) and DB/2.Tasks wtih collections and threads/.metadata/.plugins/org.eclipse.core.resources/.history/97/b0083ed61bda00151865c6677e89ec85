@@ -1,0 +1,20 @@
+package MusicShop;
+
+import java.util.Map;
+
+public class InstrumntDistributor {
+	private Shop shop;
+	//String-instrument name, Integer - time for delivery
+	private Map<String, Integer> instumentsPerf;
+	
+	
+	public Shop getShop() {
+		return shop;
+		this.instumentsPerf
+	}
+
+	public void setShop(Shop shop) {
+		this.shop = shop;
+	}
+	
+}

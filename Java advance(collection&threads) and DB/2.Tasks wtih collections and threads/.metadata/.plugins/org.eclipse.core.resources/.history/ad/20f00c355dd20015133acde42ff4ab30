@@ -1,0 +1,29 @@
+package Store;
+
+import java.util.List;
+import java.util.Map;
+
+public class Store implements Runnable {
+	
+	private Map<String, List<Product>> products;
+
+	@Override
+	public void run() {
+		
+		
+	}
+	
+	boolean isEnoughProductsInStore(Product product){
+		for(String type:products.keySet()){
+			List<Product> test = products.get(type);
+			for(Product curProd:test){
+				if(curProd.getName().equals(product.getName())){
+					if(curProd.getCount()<3){
+						return false;
+					}
+				}
+			}
+		}
+		return true;
+	}
+}

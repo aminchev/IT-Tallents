@@ -1,0 +1,20 @@
+package MusicShop;
+
+public class DemoInstruments {
+
+	public static void main(String[] args) {
+	
+		Shop shop = new Shop(1000);
+		
+		shop.addNewInstrumentsInTheShop("Strunen", "Kitara", 200, 4);
+		shop.addNewInstrumentsInTheShop("Klavishen", "Piano", 1200, 5);
+		shop.addNewInstrumentsInTheShop("Strunen", "Cigulka", 1000, 3);
+		
+		shop.sellInstrument("Kitara", 3);
+		shop.sellInstrument("Piano", 5);
+		shop.sellInstrument("Piano", 2);
+		shop.sellInstrument("gdf", 4);
+
+	}
+
+}

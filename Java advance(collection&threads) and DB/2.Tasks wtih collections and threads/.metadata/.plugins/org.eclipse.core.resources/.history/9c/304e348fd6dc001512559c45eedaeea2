@@ -1,0 +1,46 @@
+package Test;
+
+import java.util.SortedSet;
+import java.util.TreeSet;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		Biblioteka biblioteka = new Biblioteka();
+		Book book1  = new Book("Pod igoto", "Abv", "Ivan Vazov");
+		book1.setYearOfPublishig(1999);
+		book1.setMonthOfPublishing(5);
+		
+		Book book2 = new Book("Razkazi", "Bva", "Jordan Jovkov");
+		book2.setYearOfPublishig(1999);
+		book2.setMonthOfPublishing(8);
+		Book book3 = new Book("Malkiq princ", "Abagar", "Ekziuperi");
+		book3.setYearOfPublishig(2008);
+		book3.setMonthOfPublishing(12);
+		
+		Chetivo spisanie1 = new Spisanie("Az graciqta", "Ne znam", 3);
+		Chetivo spisanie2 = new Spisanie("Az graciqta", "Ne znam", 4);
+		Chetivo spisanie3 = new Spisanie("Krasiva", "Ne znam", 3);
+		Chetivo spisanie4 = new Spisanie("Krasiva", "Ne znam", 4);
+		Chetivo spisanie5 = new Spisanie("Krasiva", "Ne znam", 5);
+		
+		Uchebnik uchebnik1 = new Uchebnik("Matematika", "Prosveta");
+		uchebnik1.setAutor("Ivan Ivanov");
+		Uchebnik uchebnik2 = new Uchebnik("Matematika", "Abagar");
+		uchebnik2.setAutor("Petur Petrov");
+		Uchebnik uchebnik3 = new Uchebnik("Literatura", "Prosveta");
+		uchebnik3.setAutor("Vasil Vasilev");
+				
+		biblioteka.addBook(book1, "History");
+		biblioteka.addBook(book2, "Hudojestven");
+		biblioteka.addBook(book3, "Obsh");
+		
+		SortedSet<Book> allBooks =  biblioteka.getAllBookFromBiblioteka();
+		for(Book book:allBooks){
+			System.out.println(book.toString());
+		}
+		
+				
+	}
+
+}

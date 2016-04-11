@@ -1,0 +1,10 @@
+package PostWithVideo;
+
+public class PostOffice {
+
+	public void addMailObject(MailObject result) {
+	
+		
+	}
+
+}

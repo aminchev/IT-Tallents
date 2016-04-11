@@ -1,0 +1,32 @@
+package KristiqnExam;
+
+import java.util.List;
+
+public class Protocol {
+
+	private Person fromPerson;
+	private Person toPerson;
+	
+	private List<Package> packagesOfThisProtocol;
+
+	public Protocol(Person fromPerson, Person toPerson) {
+		this.fromPerson = fromPerson;
+		this.toPerson = toPerson;
+	}
+	
+	
+	public void generateProtocol(){
+		Package newPackageToBeAdded=getPackage();
+		packagesOfThisProtocol.add(newPackageToBeAdded);
+	}
+	
+	
+	
+	
+	public Package getPackage(){
+		return this.packagesOfThisProtocol.remove(packagesOfThisProtocol.size()-1);
+	}
+	
+	
+	
+}

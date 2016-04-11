@@ -1,0 +1,44 @@
+package KristiqnExam;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Employee extends Person{
+
+	private final String egn;
+	private FirmOffice myOffice;
+	private Protocol myProtocol;
+	
+	//validaciq
+	public Employee(String name, String city, String telNum,String egn,FirmOffice myOffice) {
+		super(name, city, telNum);
+		this.egn=egn;
+		this.setMyOffice(myOffice);
+		
+	
+	}
+
+	public String getEgn() {
+		return egn;
+	}
+	
+	public abstract void addPackageToMyList(List<Package> packages);
+//VALIDACIIKI
+	public FirmOffice getMyOffice() {
+		return myOffice;
+	}
+
+	public void setMyOffice(FirmOffice myOffice) {
+		if(myOffice!=null)
+		this.myOffice = myOffice;
+	}
+
+	public Protocol getMyProtocol() {
+		return myProtocol;
+	}
+
+	public void setMyProtocol(Protocol myProtocol) {
+		this.myProtocol = myProtocol;
+	}
+
+}

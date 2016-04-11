@@ -1,0 +1,12 @@
+package Test;
+
+import java.util.Comparator;
+
+public class UchebnikKomparator implements Comparator<Uchebnik> {
+
+	@Override
+	public int compare(Uchebnik o1, Uchebnik o2) {
+		return 0;
+	}
+
+}

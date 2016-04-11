@@ -1,0 +1,72 @@
+package PostAlone;
+
+import java.util.List;
+
+public class Citizen {
+	private String firstName;
+	private String lastName;
+	private String address;
+	private static PostOffice postoffice;
+	private static List<MailBox> mailboxes;
+	
+	static{
+		for(int mailBox = 1; mailBox<=25; mailBox++){
+			mailboxes.add(new MailBox());
+		}
+		postoffice = new PostOffice();
+	}
+	
+	public Citizen(String firstName, String lastName, String address) {
+		this.setFirstName(firstName);
+		this.setLastName(lastName);
+		this.setAddress(address);
+	}
+
+	void putRandomMeilObjectInBoxOrPostOffice() throws MailException{
+		MailObject randMailObject = null;
+		if(Math.random()<0.5){
+			randMailObject = new Letter(this, new Citizen("Ivan", "Ivanov", "Lulin 212"));
+			if(Math.random()<0.5){
+				System.out.println("She go pusna v kutiq!");
+				int randomIndexOfMailBox = (int)(Math.random()*mailboxes.size());
+				MailBox randomMailBox = mailboxes.get(randomIndexOfMailBox);
+				randomMailBox.addLetter((Letter) randMailObject);
+			}
+			else{
+				System.out.println("");
+			}
+		}
+		
+	}
+	
+	public String getFirstName() {
+		return firstName;
+	}
+
+	private void setFirstName(String firstName) {
+		if(firstName!=null && firstName.length()>0){
+			this.firstName = firstName;
+		}
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	private void setLastName(String lastName) {
+		if(lastName!=null && lastName.length()>0){
+			this.lastName = lastName;
+		}
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	private void setAddress(String address) {
+		if(address!= null && address.length()>0){
+			this.address = address;
+		}
+	}
+	
+}

@@ -1,0 +1,6 @@
+package TestLib3;
+
+public abstract class ReadingMaterial {
+	private String name;
+	
+}

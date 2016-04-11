@@ -1,0 +1,94 @@
+package Test;
+
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class Biblioteka {
+	//String-жанр 
+	private Map<String, Set<Book>> books;
+	//String - тема
+	private Map<String, Set<Uchebnik>> ucebnici;
+	//String - Категория
+	private Map<String, Set<Spisanie>> spisania;
+	
+	public Biblioteka() {
+		this.books = new TreeMap<String, Set<Book>>();
+		this.ucebnici = new TreeMap<String, Set<Uchebnik>>();
+		this.spisania = new TreeMap<String, Set<Spisanie>>();
+	}
+	
+	public SortedSet<Book> getAllBookFromBiblioteka(){
+		TreeSet<Book> sortedBook = new TreeSet<Book>((book1, book2) ->{
+			if(book1.getYearOfPublishig() == book2.getYearOfPublishig()){
+				return book1.getMonthOfPublishing() - book2.getMonthOfPublishing();
+			}
+			return book1.getYearOfPublishig() - book2.getYearOfPublishig();
+		});
+		for(String janr: books.keySet()){
+			Set<Book> booksWithThisJanr = books.get(janr);
+			sortedBook.addAll(booksWithThisJanr);
+		}
+		return sortedBook;
+	}
+	
+	public SortedSet<Uchebnik> getAllUchebniciFromBibliote(){
+		TreeSet<Uchebnik> sortedUchebnici = new TreeSet<Uchebnik>((uch1,uch2) ->{
+			if(uch1.getName().compareTo(uch2.getName()) == 0){
+				return uch1.getAutor().compareTo(uch2.getAutor());
+			}
+			return uch1.getName().compareTo(uch2.getName());
+		});
+		
+		for(String tema: ucebnici.keySet()){
+			Set<Uchebnik> uchebniciFromThisTema = ucebnici.get(tema);
+			sortedUchebnici.addAll(uchebniciFromThisTema);
+		}
+		return sortedUchebnici;
+	}
+	
+	public SortedSet<Spisanie> getAllSpisania(){
+		TreeSet<Spisanie> sortedSpisania = new TreeSet<Spisanie>((spis1, spis2) ->{
+			if(spis1.getName().compareTo(spis2.getName())==0){
+				return spis1.getNumber() - spis2.getNumber();
+			}
+			return spis1.getName().compareTo(spis2.getName());
+		});
+		
+		for(String kategoria:spisania.keySet()){
+			Set<Spisanie> spisaniaFromThisTema = spisania.get(kategoria);
+			sortedSpisania.addAll(spisaniaFromThisTema);
+		}
+		return sortedSpisania;
+	}
+	
+	void addBook(Book book,String janr){
+		if(book != null && janr!= null && janr.length()>0){
+			if(!books.containsKey(janr)){
+				books.put(janr, new HashSet<Book>());
+			}
+			books.get(janr).add(book);
+		}
+	}
+	
+	void addSpisanie(Spisanie spisanie, String category){
+		if(spisanie != null && category!=null && category.length()>0){
+			if(!spisania.containsKey(category)){
+				spisania.put(category, new HashSet<Spisanie>());
+			}
+			spisania.get(category).add(spisanie);
+		}
+	}
+	
+	void addUchebnik(Uchebnik uchebnik, String tema){
+		if(uchebnik !=null && tema!=null && tema.length()>0){
+			if(!ucebnici.containsKey(tema)){
+				ucebnici.put(tema, new HashSet<Uchebnik>());
+			}
+			ucebnici.get(tema).add(uchebnik);
+		}
+	}
+}

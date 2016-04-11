@@ -1,0 +1,13 @@
+package PostAlone;
+
+public class PostMen extends Citizen {
+
+	private int staj;
+	
+	public PostMen(String firstName, String lastName, String address, ) {
+		super(firstName, lastName, address);
+		this
+		
+	}
+
+}

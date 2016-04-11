@@ -1,0 +1,15 @@
+package Exam;
+
+import java.util.List;
+
+public class OrdinaryOffice extends Office {
+
+	private List<EmployeePriemchik> priemchici; 
+	
+	public OrdinaryOffice(String town) {
+		super(town);
+	}
+
+	
+	
+}

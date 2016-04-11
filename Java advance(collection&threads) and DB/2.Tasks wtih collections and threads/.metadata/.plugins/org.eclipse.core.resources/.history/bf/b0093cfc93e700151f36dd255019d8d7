@@ -1,0 +1,31 @@
+package Exam;
+
+import java.util.Arrays;
+import java.util.List;
+
+public abstract  class Office {
+	private String town;
+	private List<EmployeeTransporter> transporters; 
+	private List<Pratka> pratki;
+	
+	public Office(String town) {
+		this.town = town;
+	}
+	
+	
+	void acceptPratka(List<Pratka> pratkiForAccepting){
+		if(pratkiForAccepting!=null){
+			synchronized (pratki) {
+				pratki.addAll(pratkiForAccepting);
+			}
+		}
+	}
+	
+	void acceptPratka(Pratka pratka){
+		this.acceptPratka(Arrays.asList(pratka));
+	}
+	
+	int getCountOfAllPratki(){
+		return pratki.size();
+	}
+}

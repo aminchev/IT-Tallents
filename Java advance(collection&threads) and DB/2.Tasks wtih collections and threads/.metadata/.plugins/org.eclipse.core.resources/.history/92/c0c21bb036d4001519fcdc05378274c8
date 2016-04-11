@@ -1,0 +1,43 @@
+package Store2;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Shop implements Runnable {
+
+	private Map<Product, Integer> productsInShop; 
+	private Store store;
+	
+	public Shop() {
+		this.productsInShop = new HashMap<Product, Integer>();
+		for (Product product : productsInShop.keySet()) {
+			String[] types = { "Fruit", "Vegetables", "Meat" };
+			String[] productsInArray = { "Banana", "Orange", "Apple", 
+					"Potato", "Tomato", "Cucumber", "Pork", "Beef",
+					"Chicken" };
+			int helper = 0;
+			for (int type = 0; type < types.length; type++) {
+				int counter = 0;
+				for (int prod = 0 + helper; prod < productsInArray.length; prod++) {
+					productsInShop.put(new Product(types[type], productsInArray[prod]), 15);
+					counter++;
+					if (counter == 3) {
+						helper = helper + 3;
+						break;
+					}
+				}
+			}
+		}
+	}
+	
+	@Override
+	public void run() {
+		for(Product product:productsInShop.keySet()){
+			if(productsInShop.get(product)<5){
+				
+			}
+		}
+		
+	}
+
+}

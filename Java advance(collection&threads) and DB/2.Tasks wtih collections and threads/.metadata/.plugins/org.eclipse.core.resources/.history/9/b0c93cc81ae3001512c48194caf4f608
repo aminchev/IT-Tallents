@@ -1,0 +1,19 @@
+package TestLib4Again;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class LibraryMan {
+	
+	private List<ReadingMaterial> takenMaterials;
+	
+	public LibraryMan() {
+		takenMaterials = new ArrayList<ReadingMaterial>();
+	}
+	
+	void addTakenMateril(ReadingMaterial material){
+		if(material != null){
+			takenMaterials.add(material);
+		}
+	}
+}

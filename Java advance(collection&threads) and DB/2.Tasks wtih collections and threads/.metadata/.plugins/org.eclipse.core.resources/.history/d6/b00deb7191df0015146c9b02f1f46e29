@@ -1,0 +1,12 @@
+package Test2;
+
+import java.util.Comparator;
+
+public class TextbookComparator implements Comparator<Textbook> {
+
+	@Override
+	public int compare(Textbook o1, Textbook o2) {
+		if()
+	}
+
+}

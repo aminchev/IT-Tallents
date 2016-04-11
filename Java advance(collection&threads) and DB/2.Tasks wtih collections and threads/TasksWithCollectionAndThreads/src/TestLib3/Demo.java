@@ -1,0 +1,16 @@
+package TestLib3;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		Library library = new Library();
+		Client gergana = new Client(library);
+		Thread t = new Thread(gergana);
+		t.start();
+		
+		library.showCatalog(TypeOfReadingMaterial.BOOK);
+
+
+	}   
+
+}

@@ -1,0 +1,9 @@
+package PostWithVideo;
+
+public class MailBox {
+
+	public void addLetter(MailObject result) {
+		
+	}
+
+}

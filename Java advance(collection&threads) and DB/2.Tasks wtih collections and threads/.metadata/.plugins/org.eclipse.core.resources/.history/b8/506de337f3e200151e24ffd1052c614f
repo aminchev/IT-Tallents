@@ -1,0 +1,15 @@
+package TestLib4Again;
+
+import java.util.Comparator;
+
+public class MegazineComparator implements Comparator<Megazine> {
+
+	@Override
+	public int compare(Megazine mag1, Megazine mag2) {
+	//if(mag1.getName().compareTo(mag2.getName())==0){
+			return mag1.getNumberOfMagazine() - mag2.getNumberOfMagazine();
+	//	}
+	//	return mag1.getName().compareTo(mag2.getName());
+	}
+
+}

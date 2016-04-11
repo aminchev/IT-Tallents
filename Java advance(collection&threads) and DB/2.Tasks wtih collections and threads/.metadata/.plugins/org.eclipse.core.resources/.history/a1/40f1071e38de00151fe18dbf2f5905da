@@ -1,0 +1,15 @@
+package Test;
+
+import java.util.Comparator;
+
+public class BookKomparator implements Comparator<Book> {
+
+	@Override
+	public int compare(Book book1, Book book2) {
+		if(book2.getYearOfPublishig() - book1.getYearOfPublishig() == 0){
+			return book2.getMonthOfPublishing() - book1.getMonthOfPublishing();
+		}
+		return book2.getYearOfPublishig() - book1.getYearOfPublishig();
+	}
+	
+}

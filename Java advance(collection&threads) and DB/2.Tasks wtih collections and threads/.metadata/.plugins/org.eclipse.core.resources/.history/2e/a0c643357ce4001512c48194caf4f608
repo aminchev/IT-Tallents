@@ -1,0 +1,9 @@
+package PostAlone;
+
+public class PostMan {
+
+	public PostMan() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

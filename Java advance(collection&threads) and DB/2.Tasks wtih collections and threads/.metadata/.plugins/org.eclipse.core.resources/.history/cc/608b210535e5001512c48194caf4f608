@@ -1,0 +1,24 @@
+package PostNiki;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+	public static void main(String[] args) {
+
+//		for (int i = 1; i <= 100l; i++)
+//			new Thread(new Citizen("Dayan", "Dimitrov", "Banishora 7")).start();
+//	}
+		
+		List<String> one = new ArrayList<String>();
+		one.add("abc");
+		List<String> two = new ArrayList<>();
+		two.add("abc");
+		if (one == two)
+		System.out.println("A");
+		else if (one.equals(two))
+		System.out.println("B");
+		else
+		System.out.println("C");
+}
+}

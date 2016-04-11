@@ -1,0 +1,22 @@
+package PostAlone;
+
+public class Letter extends MailObject {
+
+	private static final int TIME_FOR_LETTER_SENDING = 1500;
+	private static final double TAX_FOR_LETTER_SENDING = 0.5;
+
+	public Letter(Citizen sender, Citizen receiver) {
+		super(sender, receiver);
+	}
+
+	@Override
+	public double getTaxForSending() {
+		return TAX_FOR_LETTER_SENDING;
+	}
+
+	@Override
+	public int getTimeForSending() {
+		return TIME_FOR_LETTER_SENDING;
+	}
+
+}

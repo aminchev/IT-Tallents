@@ -1,0 +1,10 @@
+package PostAlone;
+
+import java.sql.Date;
+import java.util.List;
+import java.util.Map;
+
+public class PostOffice {
+	private List<MailObject> repository;
+	private Map<Date, List<MailObject>> archiv;
+}

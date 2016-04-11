@@ -1,0 +1,41 @@
+import java.time.LocalDateTime;
+
+public class Demo {
+
+	public static void main(String[] args) throws PackageException {
+		
+		FirmOffice sofia=new FirmOffice("Sofia");
+		FirmOffice varna=new FirmOffice("Varna");
+		FirmOffice ruse=new FirmOffice("Ruse");
+		FirmOffice plovdiv=new FirmOffice("Plovdiv");
+		
+		Client micho=new PhysClient("Micho", "Varna", "321123", "31231");
+		Client jecho=new PhysClient("Jecho", "Sofia", "321123", "3123412");
+		Client pesho=new PhysClient("Pesho", "Plovdiv", "321123", "87686");
+		Client minka=new PhysClient("Minka", "Ruse", "321123", "315331");
+		
+		DistributionFirmOffice velikoTurnovo=new DistributionFirmOffice("Veliko Turnovo");
+		
+		
+		
+		Package p1=new Package(micho, jecho, "magare", LocalDateTime.now());
+		Package p2=new Package(micho, pesho, "magare", LocalDateTime.now());
+		Package p3=new Package(micho, jecho, "magare", LocalDateTime.now());
+		Package p4=new Package(micho, jecho, "magare", LocalDateTime.now());
+		Package p5=new Package(micho, jecho, "lagare", LocalDateTime.now());
+		Package p6=new Package(micho, pesho, "lagare", LocalDateTime.now());
+		Package p7=new Package(micho, pesho, "lagare", LocalDateTime.now());
+		Package p8=new Package(micho, minka, "lagare", LocalDateTime.now());
+		Package p9=new Package(micho, minka, "lagare", LocalDateTime.now());
+		Package p10=new Package(micho, minka, "lagare", LocalDateTime.now());
+		
+		
+		
+		Package p11=new Package(jecho, minka, "magare", LocalDateTime.now());
+		Package p12=new Package(jecho, micho, "magare", LocalDateTime.now());
+		Package p13=new Package(jecho, micho, "magare", LocalDateTime.now());
+		Package p14=new Package(jecho, pesho, "magare", LocalDateTime.now());
+		Package p15=new Package(jecho, pesho, "magare", LocalDateTime.now());
+	}
+
+}

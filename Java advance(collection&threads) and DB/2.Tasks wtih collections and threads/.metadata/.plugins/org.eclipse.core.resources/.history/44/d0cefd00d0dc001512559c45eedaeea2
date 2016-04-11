@@ -1,0 +1,22 @@
+package Test;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		Biblioteka biblioteka = new Biblioteka();
+		Chetivo book1  = new Book("Pod igoto", "Abv", "Ivan Vazov");
+		Chetivo book2 = new Book("Razkazi", "Bva", "Jordan Jovkov");
+		Chetivo book3 = new Book("Malkiq princ", "Abagar", "Ekziuperi");
+		
+		Chetivo spisanie1 = new Spisanie("Az graciqta", "Ne znam", 3);
+		Chetivo spisanie2 = new Spisanie("Az graciqta", "Ne znam", 4);
+		Chetivo spisanie3 = new Spisanie("Krasiva", "Ne znam", 3);
+		Chetivo spisanie4 = new Spisanie("Krasiva", "Ne znam", 4);
+		Chetivo spisanie5 = new Spisanie("Krasiva", "Ne znam", 5);
+		
+		Che
+		
+				
+	}
+
+}

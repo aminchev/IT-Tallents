@@ -1,0 +1,13 @@
+package Test;
+
+public class Uchebnik extends Chetivo {
+
+	private String autor;
+	
+	public Uchebnik(String name, String izdatelstvo) {
+		super(name, izdatelstvo);
+		
+	}
+
+
+}

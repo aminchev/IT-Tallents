@@ -1,0 +1,12 @@
+package PostAlone;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MailBox {
+	private List<Letter> letters;
+	public MailBox() {
+		letters = new ArrayList<Letter>();
+	}
+	
+}

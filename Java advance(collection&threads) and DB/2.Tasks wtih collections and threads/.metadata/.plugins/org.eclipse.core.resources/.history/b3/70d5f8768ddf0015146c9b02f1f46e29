@@ -1,0 +1,45 @@
+package Test2;
+
+public class Magazine extends ReadingMaterial {
+
+	private int broiNumber;
+	private int yearOfMade;
+	private int monthOfMade;
+	private String category;
+	
+	public Magazine(String name, int broiNumber, String category) {
+		super(name);
+		
+	}
+
+	public int getYearOfMade() {
+		return yearOfMade;
+	}
+
+	public void setYearOfMade(int yearOfMade) {
+		if(yearOfMade>0){
+			this.yearOfMade = yearOfMade;
+		}
+	}
+
+	public int getMonthOfMade() {
+		return monthOfMade;
+	}
+
+	public void setMonthOfMade(int monthOfMade) {
+		if(monthOfMade>0){
+			this.monthOfMade = monthOfMade;
+		}
+	}
+
+	private void setBroiNumber(int broiNumber) {
+		if(broiNumber>0){
+			this.broiNumber = broiNumber;
+		}
+	}
+
+	private void setCategory(String category) {
+		this.category = category;
+	}
+
+}

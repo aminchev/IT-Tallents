@@ -1,0 +1,20 @@
+package TestLib3;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class LibraryMan extends Thread {
+
+	private Map<ReadingMaterial, Double> materialsToFollow;
+	
+	public LibraryMan(){
+		this.setDaemon(true);
+		materialsToFollow = new HashMap<ReadingMaterial, Double>();
+	}
+	
+	public void addMaterialToWatch(ReadingMaterial readingMaterial) {
+		
+		
+	}
+
+}

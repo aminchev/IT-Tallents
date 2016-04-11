@@ -1,0 +1,60 @@
+package Store;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Store implements Runnable {
+	
+	private Map<String, Set<Product>> products;
+	private Provider provider;
+
+	
+	public Store() {
+		this.products = new HashMap<String, Set<Product>>();
+	}
+	@Override
+	public void run() {
+		
+		this.isEnoughProductInStore();
+		
+		
+	}
+	
+	void isEnoughProductInStore(){
+		for(String type:products.keySet()){
+			Set<Product> producti = products.get(type);
+			for(Product curProd:producti){
+				if(curProd.getCount()<5){
+					for(int i = 0; i<25; i++){
+					  Product deliveredProduct = this.provider.provideProduct(curProd);
+					  producti.add(deliveredProduct);
+					}
+				}
+			}
+		}	
+	}
+	
+	boolean getProductOut(Product product){
+		for(String type:products.keySet()){
+			Set<Product> producti = products.get(type);
+			for(Product curProd:producti){
+				if(curProd.equals(product) ){
+					if(curProd.getCount()>=5){
+						curProd.setCount(curProd.getCount()-5);
+						return true;
+					}
+				}
+				
+			}
+		}
+		return false;
+	}
+	
+	
+
+	public Provider getProvider() {
+		return provider;
+	}
+}

@@ -1,0 +1,12 @@
+package TestLib3;
+
+public class Textbook extends ReadingMaterial{
+
+	
+	
+	public Textbook(String name, String publisher) {
+		super(name, publisher);
+		
+	}
+
+}

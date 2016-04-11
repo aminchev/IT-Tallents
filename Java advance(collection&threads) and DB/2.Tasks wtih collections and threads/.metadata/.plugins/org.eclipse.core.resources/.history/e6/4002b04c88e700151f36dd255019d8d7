@@ -1,0 +1,10 @@
+package ExamTaskHome;
+
+public class Client extends Person {
+
+	public Client(String name, String phoneNumber, String privateNumber, Address address, boolean isFirma) {
+		super(name, phoneNumber, privateNumber, address, isFirma);
+		
+	}
+
+}

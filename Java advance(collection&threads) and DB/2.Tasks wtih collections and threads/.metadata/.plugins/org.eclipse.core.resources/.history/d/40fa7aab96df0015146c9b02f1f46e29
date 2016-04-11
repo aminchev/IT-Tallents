@@ -1,0 +1,15 @@
+package Test2;
+
+import java.util.Comparator;
+
+public class MagazineComparator implements Comparator<Magazine> {
+
+	@Override
+	public int compare(Magazine magazine1, Magazine magazine2) {
+		if(magazine1.getName().compareTo(magazine2.getName())==0){
+			return magazine1.getBroiNumber() - magazine2.getBroiNumber();
+		}
+		return magazine1.getName().compareTo(magazine2.getName());
+	}
+
+}

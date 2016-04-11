@@ -1,0 +1,60 @@
+package TestLib3;
+
+import java.time.LocalDateTime;
+import java.util.Comparator;
+
+public class Book extends ReadingMaterial implements Comparable<Book> {
+
+	private String author;
+	private LocalDateTime date;
+	
+	
+	public Book(LocalDateTime date, String author, String name, String publisher) {
+		super(name, publisher);
+		this.author = author;
+		this.date = date;	
+	}
+
+
+	@Override
+	public String toString() {
+		return "Book [author=" + author + ", date=" + date + ", getName()=" + getName() + ", getPublisher()="
+				+ getPublisher() + "]";
+	}
+
+
+	public String getAuthor() {
+		return author;
+	}
+
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
+
+
+	@Override
+	public int compareTo(Book boo1) {
+		return bo
+	}
+
+
+	@Override
+	public Comparator getComparator() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+}

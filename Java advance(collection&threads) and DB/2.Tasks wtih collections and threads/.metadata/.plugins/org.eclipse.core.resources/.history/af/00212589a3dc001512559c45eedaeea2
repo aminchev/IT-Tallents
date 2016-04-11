@@ -1,0 +1,23 @@
+package Test;
+
+public class Uchebnik extends Chetivo {
+
+	private String autor;
+	private String tema;
+	
+	public Uchebnik(String name, String izdatelstvo, String tema) {
+		super(name, izdatelstvo);
+		this.setTema(tema);
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	private void setTema(String tema) {
+		if(tema!= null && tema.length()>0){
+			this.tema = tema;
+		}
+	}
+
+}

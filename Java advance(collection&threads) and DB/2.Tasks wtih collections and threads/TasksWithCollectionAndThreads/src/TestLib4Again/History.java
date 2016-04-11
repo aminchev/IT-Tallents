@@ -1,0 +1,27 @@
+package TestLib4Again;
+
+import java.time.LocalDateTime;
+
+public class History {
+	
+	private LocalDateTime dateOfTake;
+	private LocalDateTime dateOfReturn;
+	
+	public History(LocalDateTime dateOfTake) {
+		this.setDateOfTake(dateOfTake);
+	}
+	
+	public LocalDateTime getDateOfTake() {
+		return dateOfTake;
+	}
+	public void setDateOfTake(LocalDateTime dateOfTake) {
+		this.dateOfTake = dateOfTake;
+	}
+	public LocalDateTime getDateOfReturn() {
+		return dateOfReturn;
+	}
+	public void setDateOfReturn(LocalDateTime dateOfReturn) {
+		this.dateOfReturn = dateOfReturn;
+	}
+	
+}

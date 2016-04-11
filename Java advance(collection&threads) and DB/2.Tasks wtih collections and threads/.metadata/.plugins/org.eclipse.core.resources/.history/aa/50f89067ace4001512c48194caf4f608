@@ -1,0 +1,45 @@
+package PostAlone;
+
+public class Parcel extends MailObject {
+
+	private static final double COEF_FOR_DIFFERENT_PARCEL = 1.5;
+	private static final int PRICE_FOR_PARCEL = 2;
+	private int height;
+	private int width;
+	private int lenght;
+	private boolean isFragile;
+	
+	public Parcel(Citizen sender, Citizen receiver, int h, int w, int l, boolean isFragile) {
+		super(sender, receiver);
+		this.height = h;
+		this.width = w;
+		this.lenght = l;
+		this.isFragile = isFragile;
+	}
+
+	@Override
+	public double getTaxForSend() {
+		double tax = PRICE_FOR_PARCEL;
+		boolean isBig = this.isOversized();
+		if(isBig == true){
+			tax = tax * COEF_FOR_DIFFERENT_PARCEL;
+		}
+		if(isFragile == true){
+			tax = tax * 1.5;
+		}
+		return tax;
+	}
+
+	@Override
+	public int getTimeForDeliver() {
+		return 2000;
+	}
+
+	boolean isOversized(){
+		if(height>60 || width>60 || lenght>60){
+			return true;
+		}
+		return false;
+	}
+	
+}

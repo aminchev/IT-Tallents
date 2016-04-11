@@ -1,0 +1,17 @@
+package Test2;
+
+import java.util.Comparator;
+
+public class BookComparator implements Comparator<ReadingMaterial> {
+
+	@Override
+	public int compare(ReadingMaterial bo1, ReadingMaterial bo2) {
+		Book book1 = (Book)bo1;
+		Book book2 = (Book)bo2;
+		if((book2.getYearOfMade() - book1.getYearOfMade()) == 0){
+			return book2.getMonthOfMade() - book1.getMonthOfMade();
+		}
+		return book2.getYearOfMade() - book1.getYearOfMade();
+	}
+
+}

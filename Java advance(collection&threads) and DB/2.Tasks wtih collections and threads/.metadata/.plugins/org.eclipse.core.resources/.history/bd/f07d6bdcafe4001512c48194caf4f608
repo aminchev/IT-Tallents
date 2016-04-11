@@ -1,0 +1,19 @@
+package PostAlone;
+
+public class PostMen extends Citizen {
+
+	private int staj;
+	
+	public PostMen(String firstName, String lastName, String address, int staj) {
+		super(firstName, lastName, address);
+		this.staj = staj;
+		
+	}
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		super.run();
+	}
+
+}

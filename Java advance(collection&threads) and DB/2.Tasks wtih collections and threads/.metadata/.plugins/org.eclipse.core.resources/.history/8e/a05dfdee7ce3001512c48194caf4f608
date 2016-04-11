@@ -1,0 +1,52 @@
+package TestLib4Again;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class LibraryMan implements Runnable {
+	
+	private Map<ReadingMaterial, Double> takenMaterials;
+	
+	public LibraryMan() {
+		takenMaterials = new HashMap<ReadingMaterial, Double>();
+	}
+	
+	void addTakenMaterialToWatch(ReadingMaterial material) throws LibraryException{
+		if(material != null){
+			takenMaterials.put(material, material.getPrice());
+		}
+	}
+	
+	void removeMaterialToWatch(ReadingMaterial material){
+		if(material!=null && takenMaterials.containsKey(material)){
+			takenMaterials.remove(material);
+		}
+	}
+
+	@Override
+	public void run() {
+		while(true){
+			for(ReadingMaterial material:takenMaterials.keySet()){
+				try {
+					int timeThatThisMaterialCanBeTaken = material.getSecondForTake();
+					LocalDateTime whenMaterialWasTakenFromLibrary = material.whenMaterialIsTaken();
+					Duration duration  = Duration.between(whenMaterialWasTakenFromLibrary, LocalDateTime.now());
+					int periodOfTaking = (int) duration.getSeconds();
+					if(periodOfTaking>timeThatThisMaterialCanBeTaken){
+						int delayInSeconds = periodOfTaking-timeThatThisMaterialCanBeTaken;
+						Double money = material.getPrice() + delayInSeconds*();
+					}
+					
+				} catch (LibraryException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+}

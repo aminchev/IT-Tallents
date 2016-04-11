@@ -1,0 +1,12 @@
+package PostWithVideo;
+
+public class Postman extends Citizen {
+
+	private int staj;
+	
+	public Postman(String firstName, String lastName, String address) {
+		super(firstName, lastName, address);
+		
+	}
+
+}

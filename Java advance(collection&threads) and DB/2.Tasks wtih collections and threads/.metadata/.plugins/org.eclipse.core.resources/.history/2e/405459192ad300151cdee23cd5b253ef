@@ -1,0 +1,16 @@
+package Store;
+
+import java.util.List;
+
+public class Provider {
+	
+	private Store store;
+	
+	Product provideProduct(Product product){
+		if(product !=null){
+			return product;
+		}
+		return null;
+		
+	}
+}

@@ -1,0 +1,21 @@
+package TestLib3;
+
+import java.time.LocalDateTime;
+
+public class Magazine extends ReadingMaterial {
+
+	private int number;
+	private LocalDateTime date;
+	
+	public Magazine(LocalDateTime date, int number, String name, String publisher) {
+		super(name, publisher);
+		this.number = number;
+		this.date = date;
+		
+	}
+
+	public static boolean canBeTaken() {
+		return false;
+	}
+	
+}

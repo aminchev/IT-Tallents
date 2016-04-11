@@ -1,0 +1,31 @@
+package TestLib3;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class ReadingMaterial {
+	
+	private static int currentId = 1;
+	
+	private int id;
+	private String name;
+	private String publisher;
+	private List<History> history ;
+	private boolean isTeaken;
+	
+	public ReadingMaterial(String name, String publisher) {
+		this.id = currentId++;
+		this.name = name;
+		this.publisher = publisher;
+		this.history = new ArrayList<History>();
+	}
+
+	public boolean isTeaken() {
+		return isTeaken;
+	}
+
+	public void setTeaken(boolean isTeaken) {
+		this.isTeaken = isTeaken;
+	}
+	
+}

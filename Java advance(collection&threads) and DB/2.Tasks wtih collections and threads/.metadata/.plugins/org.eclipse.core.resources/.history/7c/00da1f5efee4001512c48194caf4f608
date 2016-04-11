@@ -1,0 +1,20 @@
+package PostAlone;
+
+import PostNiki.Citizen;
+
+public class Demo {
+
+	public static void main(String[] args) {
+		Citizen ivan = new Citizen("Ivan", "Iliev", "Drujba 231");
+		PostMen postman = new PostMen("Petko", "Petkov", "Nadejda 123", 8);
+		Collector collector= new Collector("Gencho", "Genev", "Mladost 432", 2);
+		
+		//PostOffice postOffice = new
+		
+		for (int i = 1; i <= 100l; i++)
+			new Thread(new Citizen("Dayan", "Dimitrov", "Banishora 7")).start();
+	}
+
+	
+
+}

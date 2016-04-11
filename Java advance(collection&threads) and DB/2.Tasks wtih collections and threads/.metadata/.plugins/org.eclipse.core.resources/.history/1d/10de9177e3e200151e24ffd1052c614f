@@ -1,0 +1,32 @@
+package TestLib4Again;
+
+import java.time.LocalDateTime;
+
+public class Book extends ReadingMaterial {
+
+	private String author;
+	private LocalDateTime date;
+	
+	public Book(String author, LocalDateTime date,String name, String izdatelstvo) {
+		super(name, izdatelstvo);
+		this.setAuthor(author);
+		this.setDateOfPublishing(date);
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	private void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public LocalDateTime getDateOfPublishing() {
+		return dateOfPublishing;
+	}
+
+	private void setDateOfPublishing(LocalDateTime dateOfPublishing) {
+		this.dateOfPublishing = dateOfPublishing;
+	}
+	
+}

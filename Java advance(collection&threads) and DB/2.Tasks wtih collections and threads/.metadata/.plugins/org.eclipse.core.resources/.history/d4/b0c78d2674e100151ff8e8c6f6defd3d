@@ -1,0 +1,14 @@
+package TestLib3;
+
+public class LibraryMan extends Thread {
+
+	public LibraryMan(){
+		
+	}
+	
+	public void addMaterialToWatch(ReadingMaterial readingMaterial) {
+		
+		
+	}
+
+}

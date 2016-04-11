@@ -1,0 +1,16 @@
+package PostAlone;
+
+public class Collector extends PostMen {
+
+	
+	public Collector(String firstName, String lastName, String address, int staj) {
+		super(firstName, lastName, address, staj);
+	}
+
+	@Override
+	public void run() {
+		
+		super.run();
+	}
+
+}

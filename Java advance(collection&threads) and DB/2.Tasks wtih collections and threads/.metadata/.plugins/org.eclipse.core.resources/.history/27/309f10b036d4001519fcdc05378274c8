@@ -1,0 +1,19 @@
+package Store2;
+
+public class Client implements Runnable{
+
+	private Shop shop;
+	public Client(Shop shop) {
+		this.shop = shop;
+	}
+	
+	@Override
+	public void run() {
+		while(true){
+			double quantiti = (double)(Math.random()*3)+1;
+			
+		}
+		
+	}
+
+}

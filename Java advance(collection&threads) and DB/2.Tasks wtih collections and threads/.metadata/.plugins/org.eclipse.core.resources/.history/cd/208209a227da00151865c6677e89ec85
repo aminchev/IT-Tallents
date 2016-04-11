@@ -1,0 +1,17 @@
+package MusicShop;
+
+public class Client {
+	private Shop shop;
+
+	public Client(Shop shop) {
+		this.setShop(shop);
+	}
+	
+	private void setShop(Shop shop) {
+		if(shop!= null){
+			this.shop = shop;
+		}
+	}
+	
+	
+}

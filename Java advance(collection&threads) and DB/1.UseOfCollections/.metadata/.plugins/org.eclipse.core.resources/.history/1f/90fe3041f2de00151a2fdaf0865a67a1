@@ -1,0 +1,84 @@
+package MostCommonLetter;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import javax.print.attribute.HashAttributeSet;
+
+public class MostCommonLetter {
+
+	public static void main(String[] args) {
+		TreeMap<Character, Integer> sentensec = new TreeMap<Character, Integer>();
+		Integer a = 1;
+		String test = "His name is Slim Shady";
+		String test1 = test.toLowerCase().replaceAll("\\s","");
+		char[] array = test1.toCharArray();
+		
+		
+		for(Character letter:array){
+			if(!sentensec.containsKey(letter)){
+				sentensec.put(letter, 1);
+			}
+			else{
+				sentensec.put(letter, sentensec.get(letter)+1);
+			}
+		}
+		
+		for(Character key:sentensec.keySet()){
+			System.out.println(key + ":" + sentensec.get(key));
+		}
+		
+		Set<Entry<Character, Integer>> set = sentensec.entrySet();
+		System.out.println("TUK");
+		for(Entry<Character,Integer> entry: set){
+			System.out.print(entry.getKey());
+			System.out.println(entry.getValue());
+		}
+		List<Entry<Character, Integer>> list = new ArrayList<Entry<Character, Integer>>(set);
+		System.out.println("OOOO:" + list.get(0).getKey());
+		Collections.sort( list, new Comparator<Entry<Character, Integer>>()
+        {
+            public int compare(Entry<Character, Integer> o1,Entry<Character, Integer> o2 )
+            {
+                return (o2.getValue()).compareTo( o1.getValue() );
+            }
+        } );
+		
+		 
+		Object[] chisla = sentensec.values().toArray();
+		double maxNumber = 1;
+		for(int i = 1; i<chisla.length; i++){
+			if(((int)chisla[i])>maxNumber){
+				maxNumber = (int) chisla[i];
+			}
+		}
+		
+	
+		for(Entry<Character, Integer> entry:list){
+            System.out.print(entry.getKey()+":"+entry.getValue()+ " ");
+            if(entry.getValue()/maxNumber == 1){
+            	for(int i = 0; i<20; i++){
+            		System.out.print('#');
+            	}
+            }
+            else{
+            	double brojSimvoli = (double)((entry.getValue())/maxNumber)*20+0.99;
+            	int upper = (int)brojSimvoli;
+            	for (int i = 0; i < upper; i++) {
+					System.out.print('#');
+				}
+            }
+            System.out.println();
+		}
+	}
+}

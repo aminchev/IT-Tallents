@@ -1,0 +1,38 @@
+package MusicShop;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Shop {
+	private int moneyInCash;
+	private Map<Instrument, Integer> instruments;
+	
+	public Shop(int moneyInCash) {
+		this.setMoneyInCash(moneyInCash);
+		this.instruments = new TreeMap<Instrument, Integer>();
+	}
+	
+	
+	void sellInstrument(String name, int count){
+		if(name != null && !name.equals("") && count>0){
+			for(Instrument instrument: instruments.keySet()){
+				if(instrument.getName().equals(name)){
+					if(instruments.get(instrument)>=count){
+						instruments.put(instrument, instruments.get(instrument)-count);
+						this.setMoneyInCash(this.getMoneyInCash()-instrument.getPrice()*count);
+					}
+				}
+			}
+		}
+	}
+
+	public int getMoneyInCash() {
+		return moneyInCash;
+	}
+
+	public void setMoneyInCash(int moneyInCash) {
+		if(moneyInCash>0){
+			this.moneyInCash = moneyInCash;
+		}
+	}
+}

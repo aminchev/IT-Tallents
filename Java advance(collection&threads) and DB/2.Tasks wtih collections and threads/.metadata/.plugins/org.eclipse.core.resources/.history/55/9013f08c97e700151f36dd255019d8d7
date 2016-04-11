@@ -1,0 +1,21 @@
+package ExamTaskHome;
+
+public class Client extends Person {
+
+	private boolean isFirma;
+	private Office office;
+	
+	public Client(String name, String phoneNumber, String privateNumber, Address address, boolean isFirma) {
+		super(name, phoneNumber, privateNumber, address);
+		this.setFirma(isFirma);
+	}
+
+	public boolean isFirma() {
+		return isFirma;
+	}
+
+	private void setFirma(boolean isFirma) {
+		this.isFirma = isFirma;
+	}
+
+}

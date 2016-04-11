@@ -1,0 +1,33 @@
+package ExamTaskHome;
+
+public class OrdinaryOffice extends Office {
+
+	private PriemchikEmployee priemchik;
+	private TransporterEmployee driver;
+	
+	public OrdinaryOffice(String city) {
+		super(city);
+		
+	}
+
+	public TransporterEmployee getDriver() {
+		return driver;
+	}
+
+	public void setDriver(TransporterEmployee driver) {
+		if(driver != null){
+			this.driver = driver;
+		}
+	}
+
+	public PriemchikEmployee getPriemchik() {
+		return priemchik;
+	}
+
+	public void setPriemchik(PriemchikEmployee priemchik) {
+		if(priemchik!=null){
+			this.priemchik = priemchik;
+		}
+	}
+
+}

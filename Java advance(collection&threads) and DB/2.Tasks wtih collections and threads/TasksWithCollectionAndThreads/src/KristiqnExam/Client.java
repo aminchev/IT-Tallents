@@ -1,0 +1,11 @@
+package KristiqnExam;
+
+public abstract class Client extends Person{
+
+	public Client(String name, String city, String telNum) {
+		super(name, city, telNum);
+	}
+
+	
+	
+}

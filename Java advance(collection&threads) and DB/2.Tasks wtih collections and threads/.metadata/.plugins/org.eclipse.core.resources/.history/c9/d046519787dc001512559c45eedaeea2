@@ -1,0 +1,30 @@
+package Test;
+
+public abstract class Chetivo {
+	private String name;
+	private String izdatelstvo;
+	
+	public Chetivo() {
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	private void setName(String name) {
+		if(name!= null && name.length()>0){
+			this.name = name;
+		}
+	}
+
+	 String getIzdatelstvo() {
+		return izdatelstvo;
+	}
+
+	private void setIzdatelstvo(String izdatelstvo) {
+		if(izdatelstvo!=null && izdatelstvo.length()>0){
+			this.izdatelstvo = izdatelstvo;
+		}
+	}
+}

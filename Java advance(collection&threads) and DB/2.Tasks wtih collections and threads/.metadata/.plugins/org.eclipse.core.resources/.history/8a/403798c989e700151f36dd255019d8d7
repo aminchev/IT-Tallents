@@ -1,0 +1,13 @@
+package ExamTaskHome;
+
+import java.util.List;
+
+public abstract class Office {
+
+		private String city;
+		private List<Protocol> protocoli;
+		private List<Pratka> pratki;
+		p
+		
+		
+}

@@ -1,0 +1,9 @@
+package TestLib4Again;
+
+public class ReadingMaterialComparator {
+
+	public ReadingMaterialComparator() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

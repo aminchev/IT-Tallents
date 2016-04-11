@@ -1,0 +1,50 @@
+package MusicShop;
+
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+public class InstrumntDistributor {
+	private Shop shop;
+	//String-instrument name, Integer - time for delivery
+	private TreeMap<String, Integer> offeredInstruments;
+	
+	
+	public InstrumntDistributor() {
+		this.setShop(shop);
+		this.offeredInstruments = new TreeMap<String, Integer>();
+	}
+	
+	public Shop getShop() {
+		return shop;
+		
+	}
+
+	public void setShop(Shop shop) {
+		if(shop!= null){
+			this.shop = shop;
+		}
+	}
+	
+	void addInstrumentsForSale(String name, int periodForDelivery){
+		if(name!= null && !name.equals("") && periodForDelivery>0){
+			if(!offeredInstruments.containsKey(name)){
+				offeredInstruments.put(name, periodForDelivery);
+			}
+			
+		}
+	}
+	
+	void timeForDeliveryOfInstrument(String instrumenName){
+		if(instrumenNname!=null && instrumenNname.length()>0){
+			for(String instrument:offeredInstruments.keySet()){
+				if(instrument.equals(instrumenNname)){
+					System.out.println("This instrument can be delivered for " + 
+							offeredInstruments.get(instrument)+ " days!");
+					return;
+				}
+			}
+			System.out.println("I do not offer such instument!");
+		}
+	}
+}

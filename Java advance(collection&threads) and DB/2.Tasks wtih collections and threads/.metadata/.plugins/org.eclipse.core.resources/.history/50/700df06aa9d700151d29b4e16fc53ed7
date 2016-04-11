@@ -1,0 +1,12 @@
+package MusicShop;
+
+import java.util.Map;
+
+public class Shop {
+	private int moneyInCash;
+	private Map<Instrument, Integer> instruments;
+	
+	public Shop(int moneyInCash) {
+		
+	}
+}

@@ -1,0 +1,13 @@
+package PostWithVideo;
+
+import java.util.LinkedList;
+
+public class MailBox {
+
+	private LinkedList<Letter> contents  = new LinkedList<Letter>();
+	
+	public void addLetter(Letter result) {
+		
+	}
+
+}
